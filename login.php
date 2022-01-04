@@ -5,8 +5,9 @@ include "DB connection.php";
 $email=$_POST['email'];
 $password=$_POST['password'];
 $encrypted_password=md5($password);
-if($email!=''&&$password!='')
- {
+
+
+ 
    $query=mysqli_query($connection,"SELECT * 
                                     FROM customer  
                                     WHERE email='$email' AND password='$encrypted_password'") ;
@@ -28,8 +29,6 @@ if($email!=''&&$password!='')
    {
     echo"Invaild email or password";
    }
- }
+ 
 
- else{
-    echo"please enter email and password";
- }
+ 
