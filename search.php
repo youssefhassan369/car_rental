@@ -19,12 +19,13 @@ if($year=="") $year=2000;    //default value
 if($max_price=="") $max_price=100000;   //default value
 if($min_price=="") $min_price=0;    //default value
 
-/*$type="sedan";
+$type="sedan";
+$brand="toyota";
 $city="alexandria";
 $transmission="a";
 $start_date="2020-02-05";
 $end_date="2020-02-12";
-*/
+
 
 if($brand=="" && $type==""){     //00
     $query="Select *
@@ -41,7 +42,6 @@ $sql = mysqli_query($connection,$query);
 $res=mysqli_fetch_array($sql);
 
 
-
 }
 
 elseif($brand=="" &&$type!=""){     //01
@@ -56,14 +56,14 @@ elseif($brand=="" &&$type!=""){     //01
     
     $sql = mysqli_query($connection, $query);
     $res = mysqli_fetch_array($sql);
-    
+
     
     }
 
     elseif($brand!="" &&$type==""){     //10
         $query="Select *
         From car natural join office
-        where brand='$brand' and year >='$year' and transmission='$transmission' and city='$city' and price between '$max_price' and '$min_price' and plate_number not in ( select plate_number
+        where brand='$brand' and year >='$year' and transmission='$transmission' and city='$city' and price between '$min_price' and '$max_price' and plate_number not in ( select plate_number
                                                                                                      from reservation   
                                                                                                      where 
                                                                                                      start_date <'$end_date' and end_date > '$end_date'
@@ -72,12 +72,14 @@ elseif($brand=="" &&$type!=""){     //01
         
         $sql = mysqli_query($connection, $query);
         $res = mysqli_fetch_array($sql);
-        }
+
+        
+            }
 
         else{       //11
             $query="Select *
             From car natural join office
-            where brand='$brand' and type='$type' and year >='$year' and transmission='$transmission' and city='$city' and price between '$max_price' and '$min_price' and plate_number not in ( select plate_number
+            where brand='$brand' and type='$type' and year >='$year' and transmission='$transmission' and city='$city' and price between '$min_price' and '$max_price' and plate_number not in ( select plate_number
                                                                                                          from reservation   
                                                                                                          where 
                                                                                                          start_date <'$end_date' and end_date > '$end_date'
@@ -85,6 +87,7 @@ elseif($brand=="" &&$type!=""){     //01
                                                                                                                                               )";
             $sql = mysqli_query($connection, $query);
             $res = mysqli_fetch_array($sql);
+
         } 
 
 
