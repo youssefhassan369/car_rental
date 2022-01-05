@@ -13,7 +13,7 @@
          $.ajax
             ({
             type:'post',
-            url:'login.php',
+            url:'index.php',
             data:{
                do_signup:"do_signup",
                email:email,
@@ -23,7 +23,7 @@
             {
                if(response=="success")
                {
-                  window.location.href="login.php";
+                  window.location.href="index.php";
                }
                else
                {
@@ -57,15 +57,44 @@
       }
       else if(empt3 !=empt4)
       {
-         alert("those passwords didn't match please try again");
+         alert("password & confirm password didn't match, please try again");
          return false;
       }
       else 
       {
          return true; 
       }
-   }  
+   } 
 
+   function SSNnumber()
+{
+   ssn = document.forms["form2"]["ssn"].value
+  var ssnPattern = /^\d{14}$/;
+  if(ssnPattern.test(ssn))
+        {
+      return true;
+        }
+      else
+        {
+        alert("SSN must be 14 digit");
+        return false;
+        }
+}
+
+   function phonenumber()
+{
+   phone = document.forms["form2"]["phone"].value
+  var phonePattern = /^\d{11}$/;
+  if(phonePattern.test(phone))
+        {
+      return true;
+        }
+      else
+        {
+        alert("Phone Number must be 11 digit");
+        return false;
+        }
+}
 
 
    function validateEmail(){      

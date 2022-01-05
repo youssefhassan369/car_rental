@@ -16,7 +16,7 @@
          $.ajax
             ({
             type:'post',
-            url:'login.php',
+            url:'index.php',
             data:{
                do_login:"do_login",
                email:email,
