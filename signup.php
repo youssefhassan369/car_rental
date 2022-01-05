@@ -7,7 +7,10 @@
    {
       var email = document.forms["form2"]["email"].value;
       var pass = document.forms["form2"]["pwd"].value;
-      if(reg()&& validateEmail())
+      var phone = document.forms["form2"]["phone"].value;
+      var ssn = document.forms["form2"]["ssn"].value;
+      if(reg()&& validateEmail()&&SSNnumber()&&phonenumber())
+
       {
          
          $.ajax
@@ -17,7 +20,9 @@
             data:{
                do_signup:"do_signup",
                email:email,
-               password:pass
+               password:pass,
+               phone: phone ,
+               ssn:ssn,
             },
             success:function(response) 
             {
@@ -46,9 +51,9 @@
       var empt5 = document.forms["form2"]["Lname"].value;
       var empt6 = document.forms["form2"]["phone"].value;
       var empt7 = document.forms["form2"]["birth"].value;
-      var empt8 = document.forms["form2"]["visa"].value;
+      var empt8 = document.forms["form2"]["address"].value;
       var empt9 = document.forms["form2"]["ssn"].value;
-      var empt10 = document.forms["form2"]["sex"].value;
+      var empt10 = document.forms["form2"]["Gender"].value;
 
       if (empt1.trim() == "" || empt2.trim()=="" || empt3.trim()=="" || empt4.trim()=="" || empt5.trim()==""|| empt6.trim()==""|| empt7.trim()==""|| empt8.trim()=="" || empt9.trim()==""|| empt10.trim()=="")
       {
@@ -125,7 +130,6 @@ body {
 <main  class="container" style="margin-top: 10%;margin-left:30%"> 
    <h1 style="color:darkgreen;  margin-left:25%">Sign up<h1>
 <form action='index.php' method='post' onsubmit="return do_signup();" id="form2">
-
 <div class="form-group">
 <label class="form-control-plaintext" >First name:</label>
 <input style="width:66%"type='text' class="form-control" name='Fname'/>
@@ -163,3 +167,4 @@ body {
 </main>
 </body>
 </html>
+
