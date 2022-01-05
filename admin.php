@@ -63,9 +63,17 @@
    
 </head>
 <body class="modal-body">
+<style>
+body {
+  background-image: url('login_wallpaper.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 <main  class="container" style="margin-top: 10%;"> 
 
-<h1 style="color:darkgreen; text-align:center">Login Admin<h1>
+<h1 style="color:darkgreen; text-align:center">Admin Log in<h1>
 <form action='#' method='post' onsubmit="return do_login_admin();" id="form1">
 <div class="form-group">
 <label class="form-control-plaintext" >Email:</label>
@@ -75,12 +83,12 @@
 
 </div>
 <div style="margin-left: 47%">
-<input type='submit' name='submit' class="btn btn-success" value='Login'/>
+<input type='submit' name='submit' class="btn btn-success" value='Log in'/>
 </div>
 </form>
 
-<a  href="signup.php" style="color:grey ; font-size: 25px">Create an account</a><br>
-<a href="login.php" style="color:grey ; font-size: 25px">Login </a>
+<a  href="signup.php" style="color:black ; font-size: 25px">Create an account</a><br>
+<a href="index.php" style="color:black ; font-size: 25px">Log in </a>
 
 
 </form>
