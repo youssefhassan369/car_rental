@@ -71,18 +71,18 @@ body {
   background-size: cover;
 }
 </style>
-<main  class="container" style="margin-top: 10%;"> 
+<main  class="container" style="margin-top: 10%;margin-left:30%"> 
 
-<h1 style="color:darkgreen; text-align:center">Admin Log in<h1>
+<h1 style="color:darkgreen; margin-left:25% ">Admin Log in<h1>
 <form action='#' method='post' onsubmit="return do_login_admin();" id="form1">
 <div class="form-group">
 <label class="form-control-plaintext" >Email:</label>
-<input type='text' class="form-control" name='email' id='email'/>
+<input style="width:66%" type='text' class="form-control" name='email' id='email'/>
 <label class="form-control-plaintext" >Password:</label>
-<input type='password' class="form-control" class="form-control"  name='pwd' id='password'/>
+<input style="width:66%" type='password' class="form-control" class="form-control"  name='pwd' id='password'/>
 
 </div>
-<div style="margin-left: 47%">
+<div style="margin-left: 30%">
 <input type='submit' name='submit' class="btn btn-success" value='Log in'/>
 </div>
 </form>
