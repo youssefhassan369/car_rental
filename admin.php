@@ -4,7 +4,7 @@
 
 
 <script type = "text/javascript">
-   function do_login()
+   function do_login_admin()
    {
       
       var email = document.forms["form1"]["email"].value;
@@ -65,8 +65,8 @@
 <body class="modal-body">
 <main  class="container" style="margin-top: 10%;"> 
 
-<h1 style="color:darkgreen; text-align:center">Login<h1>
-<form action='#' method='post' onsubmit="return do_login();" id="form1">
+<h1 style="color:darkgreen; text-align:center">Login Admin<h1>
+<form action='#' method='post' onsubmit="return do_login_admin();" id="form1">
 <div class="form-group">
 <label class="form-control-plaintext" >Email:</label>
 <input type='text' class="form-control" name='email' id='email'/>
@@ -74,13 +74,13 @@
 <input type='password' class="form-control" class="form-control"  name='pwd' id='password'/>
 
 </div>
-<div style="margin-left: 70%">
+<div style="margin-left: 47%">
 <input type='submit' name='submit' class="btn btn-success" value='Login'/>
 </div>
 </form>
 
-<a href="signup.php"style="color:grey ; font-size: 25px">Create an account</a><br>
-<a href="admin.php" style="color:grey  ; font-size: 25px">Login as admin</a>
+<a  href="signup.php" style="color:grey ; font-size: 25px">Create an account</a><br>
+<a href="login.php" style="color:grey ; font-size: 25px">Login </a>
 
 
 </form>
