@@ -121,9 +121,11 @@ body {
   background-size: cover;
 }
 </style>
+
 <main  class="container" style="margin-top: 10%;margin-left:30%"> 
    <h1 style="color:darkgreen;  margin-left:25%">Sign up<h1>
-<form action='login.php' method='post' onsubmit="return do_signup();" id="form2">
+<form action='index.php' method='post' onsubmit="return do_signup();" id="form2">
+
 <div class="form-group">
 <label class="form-control-plaintext" >First name:</label>
 <input style="width:66%"type='text' class="form-control" name='Fname'/>
