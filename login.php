@@ -1,9 +1,11 @@
 <?php
-session_start();
 include "DB connection.php";
 
+if(isset($_POST['submit'])){
+session_start();
+
 $email=$_POST['email'];
-$password=$_POST['password'];
+$password=$_POST['pwd'];
 $encrypted_password=md5($password);
 
 
@@ -19,16 +21,18 @@ $encrypted_password=md5($password);
     $fname = $userRow['fname'];
     $lname = $userRow['lname'];
     $email = $userRow['email'];
+    $phone = $userRow['phone'];
     $_SESSION['email']=$email;
     $_SESSION['fname']=$fname;
     $_SESSION['lname']=$lname;
+    $_SESSION['phone']=$phone;
     header('location:welcome.php');
-    echo"vaild";
+    echo"<script>alert('login successfully')</script>";
    }
    else
    {
-    echo"Invaild email or password";
+    echo"<script>alert('invalid email or password!')</script>";
    }
  
-
+}
  

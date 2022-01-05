@@ -1,3 +1,5 @@
+<?php include('login.php')?>
+
 <html>
 <head>
 <link rel="stylesheet" media="screen" href="bootstrap.min.css">
@@ -26,7 +28,7 @@
             {
                if(response=="success")
                {
-                  window.location.href="#";
+                  window.location.href="login.php";
                }
                else
                {
@@ -86,8 +88,8 @@ body {
 </div>
 </form>
 
-<a href="signup.php"style="color:black ; font-size: 25px">Create an account</a><br>
-<a href="admin.php" style="color:black  ; font-size: 25px">Log in as admin</a>
+<a href="signup.php"style="color:white ; font-size: 25px">Create an account</a><br>
+<a href="admin.php" style="color:white  ; font-size: 25px">Log in as admin</a>
 
 
 </form>

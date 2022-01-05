@@ -1,3 +1,5 @@
+<?php include('register.php') ?>
+
 <html>
 <head>
 <link rel="stylesheet" media="screen" href="bootstrap.min.css">
@@ -28,7 +30,7 @@
             {
                if(response=="success")
                {
-                  window.location.href="index.php";
+                  window.location.href="submit.php";
                }
                else
                {
@@ -129,7 +131,7 @@ body {
 
 <main  class="container" style="margin-top: 10%;margin-left:30%"> 
    <h1 style="color:darkgreen;  margin-left:25%">Sign up<h1>
-<form action='index.php' method='post' onsubmit="return do_signup();" id="form2">
+<form action='#' method='post' onsubmit="return do_signup();" id="form2">
 <div class="form-group">
 <label class="form-control-plaintext" >First name:</label>
 <input style="width:66%"type='text' class="form-control" name='Fname'/>
@@ -159,7 +161,7 @@ body {
 </div>
 
 <div style="margin-left:30%">
-<input type='submit' name='submit2' class="btn btn-success" value='Sign Up'/>
+<input type='submit' name='reg_user' class="btn btn-success" value='Sign Up'/>
 </div>
 
 <a href="index.php" style="color:black ; font-size: 25px">Already have an account ?</a>
