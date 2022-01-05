@@ -121,24 +121,26 @@ body {
   background-size: cover;
 }
 </style>
-<main  class="container" style="margin-top: 10%;"> 
-   <h1 style="color:darkgreen; text-align:center">Sign up<h1>
+
+<main  class="container" style="margin-top: 10%;margin-left:30%"> 
+   <h1 style="color:darkgreen;  margin-left:25%">Sign up<h1>
 <form action='index.php' method='post' onsubmit="return do_signup();" id="form2">
+
 <div class="form-group">
 <label class="form-control-plaintext" >First name:</label>
-<input type='text' class="form-control" name='Fname'/>
+<input style="width:66%"type='text' class="form-control" name='Fname'/>
 <label class="form-control-plaintext" >Last name:</label>
-<input type='text' class="form-control" name='Lname'/>
+<input style="width:66%"type='text' class="form-control" name='Lname'/>
 <label class="form-control-plaintext" >SSN:</label>
-<input type='number' class="form-control" name='ssn'/>
+<input style="width:66%"type='number' class="form-control" name='ssn'/>
 <label class="form-control-plaintext" >Email:</label>
-<input type='text' class="form-control" name='email'/>
+<input style="width:66%"type='text' class="form-control" name='email'/>
 <label class="form-control-plaintext" >Password:</label>
-<input type='password' class="form-control" name='pwd'/>
+<input style="width:66%"type='password' class="form-control" name='pwd'/>
 <label class="form-control-plaintext" >Confirm Password:</label>
-<input type='password' class="form-control" name='cpwd'/>
+<input style="width:66%"type='password' class="form-control" name='cpwd'/>
 <label class="form-control-plaintext" >Phone:</label>
-<input type='number' class="form-control" name='phone'/>
+<input style="width:66%"type='number' class="form-control" name='phone'/>
 <label class="form-control-plaintext" >Gender:</label>
 <select name="Gender" id="Gender">
 <option class="form-control-plaintext"  value="">M/F</option>
@@ -148,11 +150,11 @@ body {
 <label class="form-control-plaintext" for="birth_date">Birth Date:</label>
 <input  type="date" id="birth_date" name="birth">
 <label class="form-control-plaintext" >Address:</label>
-<input type='text' class="form-control" name='address'/>
+<input style="width:66%"type='text' class="form-control" name='address'/>
 
 </div>
 
-<div style="margin-left: 47%">
+<div style="margin-left:30%">
 <input type='submit' name='submit2' class="btn btn-success" value='Sign Up'/>
 </div>
 
