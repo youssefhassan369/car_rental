@@ -84,6 +84,14 @@
    </script>
 </head>
 <body class="modal-body">
+<style>
+body {
+  background-image: url('login_wallpaper.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
 <main  class="container" style="margin-top: 10%;"> 
    <h1 style="color:darkgreen; text-align:center">Sign up<h1>
 <form action='login.php' method='post' onsubmit="return do_signup();" id="form2">
@@ -102,24 +110,24 @@
 <input type='password' class="form-control" name='cpwd'/>
 <label class="form-control-plaintext" >Phone:</label>
 <input type='number' class="form-control" name='phone'/>
-<label class="form-control-plaintext" >Select your sex:</label>
-<select name="sex" id="sex">
-<option class="form-control-plaintext"  value="">-------------- Choose an option --------------</option>
+<label class="form-control-plaintext" >Gender:</label>
+<select name="Gender" id="Gender">
+<option class="form-control-plaintext"  value="">M/F</option>
 <option class="form-control-plaintext" value="f">female</option>
 <option  class="form-control-plaintext" value="m">male</option>
 </select>
 <label class="form-control-plaintext" for="birth_date">Birth Date:</label>
 <input  type="date" id="birth_date" name="birth">
-<label class="form-control-plaintext" >Visa:</label>
-<input type='number' class="form-control" name='visa'/>
+<label class="form-control-plaintext" >Address:</label>
+<input type='text' class="form-control" name='address'/>
 
 </div>
 
 <div style="margin-left: 47%">
-<input type='submit' name='submit2' class="btn btn-success" value='SignUp'/>
+<input type='submit' name='submit2' class="btn btn-success" value='Sign Up'/>
 </div>
 
-<a href="login.php" style="color:grey ; font-size: 25px">Already have an account?</a>
+<a href="index.php" style="color:black ; font-size: 25px">Already have an account ?</a>
 </form>
 </main>
 </body>
