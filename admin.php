@@ -1,3 +1,4 @@
+<?php include('admin_login.php') ?>
 <html>
 <head>
 <link rel="stylesheet" media="screen" href="bootstrap.min.css">
@@ -65,7 +66,7 @@
 <body class="modal-body">
 <style>
 body {
-  background-image: url('login_wallpaper.png');
+  background-image: url('login.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -78,7 +79,7 @@ body {
 <div class="form-group">
 <label class="form-control-plaintext" >Email:</label>
 <input style="width:66%" type='text' class="form-control" name='email' id='email'/>
-<label class="form-control-plaintext" >Password:</label>
+<label style="color:black" class="form-control-plaintext" >Password:</label>
 <input style="width:66%" type='password' class="form-control" class="form-control"  name='pwd' id='password'/>
 
 </div>
@@ -87,8 +88,8 @@ body {
 </div>
 </form>
 
-<a  href="signup.php" style="color:black ; font-size: 25px">Create an account</a><br>
-<a href="index.php" style="color:black ; font-size: 25px">Log in </a>
+<a  href="signup.php" style="color:white ; font-size: 25px">Create an account</a><br>
+<a href="index.php" style="color:white ; font-size: 25px">Log in </a>
 
 
 </form>

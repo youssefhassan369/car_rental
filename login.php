@@ -26,12 +26,12 @@ $encrypted_password=md5($password);
     $_SESSION['fname']=$fname;
     $_SESSION['lname']=$lname;
     $_SESSION['phone']=$phone;
+    echo"<script>alert('login successful')</script>";
     header('location:welcome.php');
-    echo"<script>alert('login successfully')</script>";
    }
    else
    {
-    echo"<script>alert('invalid email or password!')</script>";
+    echo"<script>alert('invalid email or password')</script>";
    }
  
 }
