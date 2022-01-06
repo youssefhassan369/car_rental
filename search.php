@@ -34,8 +34,16 @@ if($brand=="" && $type==""){     //00
     From reservation   
     where 
     start_date <'$end_date' and end_date > '$end_date'
-    OR start_date <'$start_date' and end_date > '$start_date'
-                                         )";
+    OR start_date <'$start_date' and end_date > '$start_date'                                  
+    Union
+    Select * 
+    From service
+    where 
+    start_date <'$end_date' and end_date > '$end_date'
+    OR start_date <'$start_date' and end_date > '$start_date'                                       
+    
+    )
+    ";
     
     
 $sql = mysqli_query($connection,$query);
@@ -52,6 +60,12 @@ elseif($brand=="" &&$type!=""){     //01
                                                                                                  where 
                                                                                                  start_date <'$end_date' and end_date > '$end_date'
                                                                                                  OR start_date <'$start_date' and end_date > '$start_date' 
+                                                                                                 Union
+                                                                                                 Select * 
+                                                                                                 From service
+                                                                                                 where   
+                                                                                                 start_date <'$end_date' and end_date > '$end_date'
+                                                                                                 OR start_date <'$start_date' and end_date > '$start_date'
                                                                                                                                       )";
     
     $sql = mysqli_query($connection, $query);
@@ -68,6 +82,12 @@ elseif($brand=="" &&$type!=""){     //01
                                                                                                      where 
                                                                                                      start_date <'$end_date' and end_date > '$end_date'
                                                                                                      OR start_date <'$start_date' and end_date > '$start_date' 
+                                                                                                     Union
+                                                                                                     Select * 
+                                                                                                     From service
+                                                                                                     where   
+                                                                                                     start_date <'$end_date' and end_date > '$end_date'
+                                                                                                     OR start_date <'$start_date' and end_date > '$start_date'
                                                                                                                                           )";
         
         $sql = mysqli_query($connection, $query);
@@ -84,6 +104,12 @@ elseif($brand=="" &&$type!=""){     //01
                                                                                                          where 
                                                                                                          start_date <'$end_date' and end_date > '$end_date'
                                                                                                          OR start_date <'$start_date' and end_date > '$start_date' 
+                                                                                                         Union
+                                                                                                         Select * 
+                                                                                                         From service
+                                                                                                         where   
+                                                                                                         start_date <'$end_date' and end_date > '$end_date'
+                                                                                                         OR start_date <'$start_date' and end_date > '$start_date'
                                                                                                                                               )";
             $sql = mysqli_query($connection, $query);
             $res = mysqli_fetch_array($sql);
