@@ -67,29 +67,29 @@
 <body class="modal-body">
 <style>
 body {
-  background-image: url('login_wallpaper.png');
+  background-image: url('wall.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 </style>
 <main  class="container" style="margin-top: 10%;margin-left:30%"> 
-<h1 style="color:darkgreen;margin-left:25% ">Log in<h1>
+<h1 style="color:white;margin-left:50% ">Log in<h1>
 <form action='#' method='post' onsubmit="return do_login();" id="form1">
 <div class="form-group">
-<label class="form-control-plaintext" >Email:</label>
-<input style="width:66%" type='text' class="form-control" name='email' id='email'/>
-<label class="form-control-plaintext" >Password:</label>
-<input style="width:66%" type='password' class="form-control" class="form-control"  name='pwd' id='password'/>
+<label style="color:white;font-size:20;margin-left:40%" class="form-control-plaintext" >Email:</label>
+<input style="width:30% ;margin-left:40%" type='text' class="form-control" name='email' id='email'/>
+<label style="color:white;font-size:20;margin-left:40%" class="form-control-plaintext" >Password:</label>
+<input style="width:30% ;margin-left:40%" type='password' class="form-control" class="form-control"  name='pwd' id='password'/>
 
 </div>
 <div style="margin-left: 30%">
-<input type='submit' name='submit' class="btn btn-success" value='Log in'/>
+<input style="color:white;background-color:red;border: none;font-size:20;margin-left:30%" type='submit' name='submit' class="btn btn-success" value='Log in'/>
 </div>
 </form>
 
-<a href="signup.php"style="color:white ; font-size: 25px">Create an account</a><br>
-<a href="admin.php" style="color:white  ; font-size: 25px">Log in as admin</a>
+<a href="signup.php"style=" color:white;margin-left:40% ; font-size: 18px">Create an account</a><br>
+<a href="admin.php" style=" color:white ;margin-left:40% ; font-size: 18px">Log in as admin</a>
 
 
 </form>

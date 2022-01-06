@@ -122,7 +122,7 @@
 <body class="modal-body">
 <style>
 body {
-  background-image: url('login_wallpaper.png');
+  background-image: url('login.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
