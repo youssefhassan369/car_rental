@@ -129,7 +129,7 @@
 	<br>
 	<div>
 				
-		<form action='cards.php' method='post' onsubmit="return do_search();" id="form3">
+		<form action='search.php' method='post' onsubmit="return do_search();" id="form3">
 		
 	<!-- <h2 style="color:white">Search</h2> -->
 		
