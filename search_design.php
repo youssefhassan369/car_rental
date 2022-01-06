@@ -156,7 +156,7 @@
 		
 		<label style="font-size:130%">Car brand:</label>
 							<select name="brand" id="brand">
-							<option class="ca"  value="">Default (any)</option>
+							<option class="ca"  value="">Default (all)</option>
    								<!-- to do  -->
 
 								</select><br>
@@ -175,7 +175,7 @@
 			<br>
 		<label style="font-size:130%">Car Type:</label>
 														<select name="type" id="type">
-															<option class="ca"  value="">Default (any)</option>
+															<option class="ca"  value="">Default (all)</option>
 															<option  class="ca" value="Sedan">Sedan</option>
 															<option  class="ca" value="Cross Over">Cross Over</option>
 															<option class="ca" value="Pick up">Pick up</option>
