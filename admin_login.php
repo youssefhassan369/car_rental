@@ -34,3 +34,4 @@ $encrypted_password=md5($password);
  
 }
  
+?>

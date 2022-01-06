@@ -122,51 +122,53 @@
 <body class="modal-body">
 <style>
 body {
-  background-image: url('login.jpg');
+  background-image: url('wall.png');
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  background-attachment:fixed;
+  background-size:cover;
+  overflow-x: hidden;
 }
 </style>
 
-<main  class="container" style="margin-top: 10%;margin-left:30%"> 
-   <h1 style="color:darkgreen;  margin-left:25%">Sign up<h1>
+<!-- <main  class="container" style="margin-top: 10%;margin-left:70%">  -->
+   <h1 style="color:white; margin-left:70%">Sign up<h1>
 <form action='#' method='post' onsubmit="return do_signup();" id="form2">
 <div class="form-group">
-<label class="form-control-plaintext" >First name:</label>
-<input style="width:66%"type='text' class="form-control" name='Fname'/>
-<label class="form-control-plaintext" >Last name:</label>
-<input style="width:66%"type='text' class="form-control" name='Lname'/>
-<label class="form-control-plaintext" >SSN:</label>
-<input style="width:66%"type='number' class="form-control" name='ssn'/>
-<label class="form-control-plaintext" >Email:</label>
-<input style="width:66%"type='text' class="form-control" name='email'/>
-<label class="form-control-plaintext" >Password:</label>
-<input style="width:66%"type='password' class="form-control" name='pwd'/>
-<label class="form-control-plaintext" >Confirm Password:</label>
-<input style="width:66%"type='password' class="form-control" name='cpwd'/>
-<label class="form-control-plaintext" >Phone:</label>
-<input style="width:66%"type='number' class="form-control" name='phone'/>
-<label class="form-control-plaintext" >Gender:</label>
-<select name="Gender" id="Gender">
-<option class="form-control-plaintext"  value="">M/F</option>
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >First name:</label>
+<input style="width:25%;font-size:20;color:black;margin-left:60%"type='text' class="form-control" name='Fname'/>
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >Last name:</label>
+<input style="width:25%;font-size:20;color:black;margin-left:60%"type='text' class="form-control" name='Lname'/>
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >SSN:</label>
+<input style="width:25%;font-size:20;color:black;margin-left:60%"type='number' class="form-control" name='ssn'/>
+<label style="width:20%;font-size:20;color:white;margin-left:60%"class="form-control-plaintext" >Email:</label>
+<input style="width:25%;font-size:20;color:black;margin-left:60%"type='text' class="form-control" name='email'/>
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >Password:</label>
+<input style="width:25%;font-size:20;color:black;margin-left:60%"type='password' class="form-control" name='pwd'/>
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >Confirm Password:</label>
+<input style="width:25%;font-size:20;;margin-left:60%"type='password' class="form-control" name='cpwd'/>
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >Phone:</label>
+<input style="width:25%;font-size:20;color:black;margin-left:60%"type='number' class="form-control" name='phone'/>
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >Gender:</label>
+
+<select style="margin-left:60%;font-size:20" name="Gender" id="Gender">
+<option style="margin-left:60%;font-size:20" class="form-control-plaintext"  value="">M/F</option>
 <option class="form-control-plaintext" value="f">female</option>
 <option  class="form-control-plaintext" value="m">male</option>
 </select>
-<label class="form-control-plaintext" for="birth_date">Birth Date:</label>
-<input  type="date" id="birth_date" name="birth">
-<label class="form-control-plaintext" >Address:</label>
-<input style="width:66%"type='text' class="form-control" name='address'/>
+<label style="font-size:20;color:white;margin-left:60%" class="form-control-plaintext" for="birth_date">Birth Date:</label>
+<input style="width:13%; font-size:20;color:black;margin-left:60%"  type="date" id="birth_date" name="birth">
+<label style="width:20%;font-size:20;color:white;margin-left:60%" class="form-control-plaintext" >Address:</label>
+<input style="width:25%;font-size:20;color:black;margin-left:60%"type='text' class="form-control" name='address'/>
 
 </div>
 
-<div style="margin-left:30%">
-<input type='submit' name='reg_user' class="btn btn-success" value='Sign Up'/>
+<div style="margin-left:60%">
+<input style="color:white;background-color:red;border: none;font-size:20;margin-left:30%" type='submit' name='reg_user' class="btn btn-success" value='Sign Up'/>
 </div>
-
-<a href="index.php" style="color:black ; font-size: 25px">Already have an account ?</a>
 </form>
-</main>
+<a href="index.php" style="margin-left:60%; color:white ; font-size: 18px;margin-left:60%">Already have an account ?</a>
+
+<!-- </main> -->
 </body>
 </html>
 
