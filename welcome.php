@@ -30,10 +30,6 @@
 						<li class="nav-item active">
 							<a class="nav-link" href="reservations.php">MY RESERVATIONS <span class="sr-only">(current)</span></a>
 						</li>
-						
-						<li class="nav-item active">
-							<a class="nav-link" href="edit.php">Edit Info <span class="sr-only">(current)</span></a>
-						</li>
 						<li class="nav-item">
 							<a  class="nav-link" href="logout.php">Logout</a>
 						</li>
