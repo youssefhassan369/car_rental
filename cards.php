@@ -51,6 +51,8 @@
 
 
   <br><br>
+  <?php foreach ($resultArray as $row) { ?>
+
     <div class="card mb-3 d-block" style="width: 1000px; margin-left: auto; margin-right: auto;">
       <div class="row g-0">
         <div class="col-lg-4">
@@ -59,7 +61,7 @@
         <div class="col-lg-8">
           <div class="card-body">
             <h5 style="font-size:35px"class="card-title">Lambogini</h5>
-            <p style="font-size:25px"class="card-text">*Brand:lamborgini*  *Type:sedan* *Model:logan*   *Year:2022*   *Transmision:A* *price:70000*    *Seats:5*     *insurance:8000* </p>
+            <p style="font-size:25px"class="card-text">"<?php echo $row['year']?>" </p>
 
             <button style="margin-left:40%;"class="btn btn-primary btn-lg" onclick="myFunction()">Reserve</button>
 
@@ -67,6 +69,8 @@
         </div>
       </div>
     </div>
+    <?php } ?>
+
     
 
     

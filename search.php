@@ -46,8 +46,17 @@ if($brand!=""){
 if($type!=""){
     $query.=$type_query;
 }
-
 $query.=$query_end;
+
+
+$sql = mysqli_query($connection, $query);
+$resultArray = [];
+
+
+while($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
+    $resultArray[] = $row;
+}
+
 
 
 
