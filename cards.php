@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-      <title>Hello, world!</title>
+      <title>Available Cars</title>
     <style>
         body {
           background-image: url('cards_background.png');
@@ -30,7 +30,7 @@
    						 <img src="logo2.png" width="60" height="40" alt="">
 					</a>
 						<li class="nav-item active">
-							<a style="color:black"class="nav-link" href="search.php">FOR BOOKING </a>
+							<a style="color:black"class="nav-link" href="search_design.php">FOR BOOKING </a>
 						</li>
 						<li class="nav-item active">
 							<a style="color:black"class="nav-link" href="reservations.php">MY RESERVATIONS </a>
@@ -51,6 +51,10 @@
 
 
   <br><br>
+  <?php include 'search.php';
+    $resultArray=$_SESSION['result'];
+   foreach ($resultArray as $row) { ?>
+
     <div class="card mb-3 d-block" style="width: 1000px; margin-left: auto; margin-right: auto;">
       <div class="row g-0">
         <div class="col-lg-4">
@@ -59,7 +63,7 @@
         <div class="col-lg-8">
           <div class="card-body">
             <h5 style="font-size:35px"class="card-title">Lambogini</h5>
-            <p style="font-size:25px"class="card-text">*Brand:lamborgini*  *Type:sedan* *Model:logan*   *Year:2022*   *Transmision:A* *price:70000*    *Seats:5*     *insurance:8000* </p>
+            <p style="font-size:25px"class="card-text">"<?php echo $row['year']?>" </p>
 
             <button style="margin-left:40%;"class="btn btn-primary btn-lg" onclick="myFunction()">Reserve</button>
 
@@ -67,26 +71,7 @@
         </div>
       </div>
     </div>
-    
-
-    
-
-    <div class="card mb-3 d-block" style="width: 1000px; margin-left: auto; margin-right: auto;height:300px">
-      <div class="row g-0">
-        <div class="col-lg-4">
-          <img style="height:295px;width:540px"src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNhcnN8ZW58MHx8MHx8&w=1000&q=80" class="img-fluid rounded-start" alt="...">
-        </div>
-        <div class="col-lg-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to addkitional content. This content is a little bit longer.</p>
-            <button style="margin-left:40%;margin-top:19%"class="btn btn-primary btn-lg" onclick="myFunction()">Reserve</button>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <?php } ?>
 
     <script>
 function myFunction() {

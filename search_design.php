@@ -1,3 +1,5 @@
+<?php include('search.php') ?>
+
 <html>
 	<head>
 		<title>Booking Page</title>
@@ -237,7 +239,7 @@
 	
 		<br>
 			<label  style="font-size:130%"for="year">Starting From Year:</label>
-			<select  id="year" >
+			<select name="year"  id="year" >
 																						<option value="1999">Default (1999)</option>
 																						<option value="1999">1999</option>
 																						<option value="2000">2000</option>
@@ -267,7 +269,7 @@
 		<br></br>
 
 
-			<button type="submit"  class="btn btn-success" value='search' >Search Avilable Cars</button>
+			<button type="submit"  class="btn btn-success" value='search' name='search' >Search Available Cars</button>
 
 
 						</form>
