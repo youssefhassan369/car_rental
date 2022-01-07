@@ -2,32 +2,58 @@
 session_start();
 include "DB connection.php";
 
+
 $brand=$_POST['brand'];
-$type=$_POST['type'];
-$year=$_POST['year'];
-$transmission=$_POST['trasmission'];
 $city=$_POST['city'];
-$max_price=$_POST['max_price'];
-$min_price=$_POST['min_price'];
-$start_date=$_POST['start_date'];
-$end_date=$_POST['end_date'];
+$year=$_POST['year'];
+$max_price=$_POST['tprice'];
+$min_price=$_POST['Fprice'];
+$transmission=$_POST['transsmision'];
+$type=$_POST['type'];
+$start_date=$_POST['RStart_date'];
+$end_date=$_POST['REnd_date'];
+
+
+$query="Select *
+FROM  car natural join office
+WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price BETWEEN  '$min_price' and '$max_price' ";
+
+$brand_query="and brand= '$brand' " ;
+$type_query="and type ='$type' " ;
+$query_end="and plate_number not in ( 
+(
+Select plate_number
+From reservation   
+where 
+start_date <'$end_date' and end_date > '$end_date'
+OR start_date <'$start_date' and end_date > '$start_date'   
+)                               
+Union
+(
+Select * 
+From service
+where 
+start_date <'$end_date' and end_date > '$end_date'
+OR start_date <'$start_date' and end_date > '$start_date' 
+)
+)";
+
+
+if($brand!=""){
+    $query.=$brand_query;
+}
+
+if($type!=""){
+    $query.=$type_query;
+}
+
+$query.=$query_end;
 
 
 
 
-if($year=="") $year=2000;    //default value
-if($max_price=="") $max_price=100000;   //default value
-if($min_price=="") $min_price=0;    //default value
 
-$type="sedan";
-$brand="toyota";
-$city="alexandria";
-$transmission="a";
-$start_date="2020-02-05";
-$end_date="2020-02-12";
-
-
-if($brand=="" && $type==""){     //00
+/*if($brand=="" && $type==""){     //00
     $query="Select *
     FROM  car natural join office
     WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price BETWEEN  '$min_price' and '$max_price' and plate_number not in ( select plate_number
@@ -115,5 +141,6 @@ elseif($brand=="" &&$type!=""){     //01
             $res = mysqli_fetch_array($sql);
 
         } 
+        */
 
 ?>
