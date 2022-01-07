@@ -269,7 +269,7 @@
 		<br></br>
 
 
-			<button type="submit"  class="btn btn-success" value='search' >Search Avilable Cars</button>
+			<button type="submit"  class="btn btn-success" value='search' name='search' >Search Available Cars</button>
 
 
 						</form>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "DB connection.php";
-
+if(isset($_POST['search'])){
 
 $brand=$_POST['brand'];
 $city=$_POST['city'];
@@ -50,14 +50,15 @@ $query.=$query_end;
 
 
 $sql = mysqli_query($connection, $query);
-$resultArray = [];
+$resultArray = array();
 
 
 while($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
     $resultArray[] = $row;
 }
-
-
+$_SESSION['done'] = $resultArray;
+header('location:cards.php');
+}
 
 
 
