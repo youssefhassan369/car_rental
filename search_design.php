@@ -157,8 +157,16 @@
 		<label style="font-size:130%">Car brand:</label>
 							<select name="brand" id="brand">
 							<option class="ca"  value="">Default (all)</option>
-   								<!-- to do  -->
-
+		<?php
+				include 'DB connection.php';
+   				$sql = "SELECT DISTINCT brand FROM car";
+   				$result = mysqli_query($connection,$sql);
+				while($row = mysqli_fetch_array($result))
+				{
+				 echo "<option value='".$row['brand']."'>" .$row['brand'] ."</options>" ;
+				}
+				  
+		?>
 								</select><br>
 		<br>
 
@@ -259,7 +267,7 @@
 		<br></br>
 
 
-			<button type="submit"  class="btn btn-success" value='search' >Search</button>
+			<button type="submit"  class="btn btn-success" value='search' >Search Avilable Cars</button>
 
 
 						</form>
