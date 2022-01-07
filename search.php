@@ -30,7 +30,7 @@ OR start_date <'$start_date' and end_date > '$start_date'
 )                               
 Union
 (
-Select * 
+Select plate_number 
 From service
 where 
 start_date <'$end_date' and end_date > '$end_date'
