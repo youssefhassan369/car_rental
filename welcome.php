@@ -42,6 +42,7 @@
 	</head>
 
 	<body class="modal-body">
+	
 		<div>
 			<form action="welcome.php" method="post">
 				<br><br><br>

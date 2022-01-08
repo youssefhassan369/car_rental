@@ -1,156 +1,62 @@
 <?php
-session_start();
+
 include "DB connection.php";
 if(isset($_POST['search'])){
-
-$brand=$_POST['brand'];
-$city=$_POST['city'];
-$year=$_POST['year'];
-$max_price=$_POST['tprice'];
-$min_price=$_POST['Fprice'];
-$transmission=$_POST['transsmision'];
-$type=$_POST['type'];
-$start_date=$_POST['RStart_date'];
+    $year=$_POST['year'];
+    $brand=$_POST['brand'];
+    $city=$_POST['city'];
+  $max_price=$_POST['tprice'];
+  $min_price=$_POST['fprice'];
+  $transmission=$_POST['transmission'];
+  $type=$_POST['type'];
+  $start_date=$_POST['RStart_date'];
 $end_date=$_POST['REnd_date'];
 
-
-$query="Select *
+    
+    $sql = "SELECT *
 FROM  car natural join office
-WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price BETWEEN  '$min_price' and '$max_price' ";
-
+WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price >= '$min_price' and price <='$max_price' and plate_number NOT IN  ( 
+    SELECT  plate_number
+    FROM reservation   
+    WHERE  
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date')                      
+    Union
+    SELECT plate_number 
+    FROM service
+    WHERE 
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date'))";
 $brand_query="and brand= '$brand' " ;
 $type_query="and type ='$type' " ;
-$query_end="and plate_number not in ( 
-(
-Select plate_number
-From reservation   
-where 
-start_date <'$end_date' and end_date > '$end_date'
-OR start_date <'$start_date' and end_date > '$start_date'   
-)                               
-Union
-(
-Select plate_number 
-From service
-where 
-start_date <'$end_date' and end_date > '$end_date'
-OR start_date <'$start_date' and end_date > '$start_date' 
-)
-)";
-
-
+$query_end="and plate_number NOT IN  ( 
+    SELECT  plate_number
+    FROM reservation   
+    WHERE  
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date')                      
+    Union
+    SELECT plate_number 
+    FROM service
+    WHERE 
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date') ";
 if($brand!=""){
-    $query.=$brand_query;
+    $sql.=$brand_query;
 }
 
 if($type!=""){
-    $query.=$type_query;
+    $sql.=$type_query;
 }
-$query.=$query_end;
+
+    $result = mysqli_query($connection,$sql);
+    $resultArray=array();
+    while($row = mysqli_fetch_array($result,MYSQLI_ASSOC)){
 
 
-$sql = mysqli_query($connection, $query);
-$resultArray = array();
 
+     $resultArray[]=$row;   
+    }
 
-while($row = mysqli_fetch_array($sql, MYSQLI_ASSOC)) {
-    $resultArray[] = $row;
-}
 $_SESSION['done'] = $resultArray;
 header('location:cards.php');
 }
 
-
-
-
-/*if($brand=="" && $type==""){     //00
-    $query="Select *
-    FROM  car natural join office
-    WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price BETWEEN  '$min_price' and '$max_price' and plate_number not in ( select plate_number
-    From reservation   
-    where 
-    start_date <'$end_date' and end_date > '$end_date'
-    OR start_date <'$start_date' and end_date > '$start_date'                                  
-    Union
-    Select * 
-    From service
-    where 
-    start_date <'$end_date' and end_date > '$end_date'
-    OR start_date <'$start_date' and end_date > '$start_date'                                       
-    
-    )
-    ";
-    
-    
-$sql = mysqli_query($connection,$query);
-$res=mysqli_fetch_array($sql);
-
-
-}
-
-elseif($brand=="" &&$type!=""){     //01
-    $query="Select *
-    From car natural join office
-    where type='$type' and year >='$year' and transmission='$transmission' and city='$city' and price between '$min_price' and '$max_price' and plate_number not in ( select plate_number
-                                                                                                 from reservation   
-                                                                                                 where 
-                                                                                                 start_date <'$end_date' and end_date > '$end_date'
-                                                                                                 OR start_date <'$start_date' and end_date > '$start_date' 
-                                                                                                 Union
-                                                                                                 Select * 
-                                                                                                 From service
-                                                                                                 where   
-                                                                                                 start_date <'$end_date' and end_date > '$end_date'
-                                                                                                 OR start_date <'$start_date' and end_date > '$start_date'
-                                                                                                                                      )";
-    
-    $sql = mysqli_query($connection, $query);
-    $res = mysqli_fetch_array($sql);
-
-    
-    }
-
-    elseif($brand!="" &&$type==""){     //10
-        $query="Select *
-        From car natural join office
-        where brand='$brand' and year >='$year' and transmission='$transmission' and city='$city' and price between '$min_price' and '$max_price' and plate_number not in ( select plate_number
-                                                                                                     from reservation   
-                                                                                                     where 
-                                                                                                     start_date <'$end_date' and end_date > '$end_date'
-                                                                                                     OR start_date <'$start_date' and end_date > '$start_date' 
-                                                                                                     Union
-                                                                                                     Select * 
-                                                                                                     From service
-                                                                                                     where   
-                                                                                                     start_date <'$end_date' and end_date > '$end_date'
-                                                                                                     OR start_date <'$start_date' and end_date > '$start_date'
-                                                                                                                                          )";
-        
-        $sql = mysqli_query($connection, $query);
-        $res = mysqli_fetch_array($sql);
-
-        
-            }
-
-        else{       //11
-            $query="Select *
-            From car natural join office
-            where brand='$brand' and type='$type' and year >='$year' and transmission='$transmission' and city='$city' and price between '$min_price' and '$max_price' and plate_number not in ( select plate_number
-                                                                                                         from reservation   
-                                                                                                         where 
-                                                                                                         start_date <'$end_date' and end_date > '$end_date'
-                                                                                                         OR start_date <'$start_date' and end_date > '$start_date' 
-                                                                                                         Union
-                                                                                                         Select * 
-                                                                                                         From service
-                                                                                                         where   
-                                                                                                         start_date <'$end_date' and end_date > '$end_date'
-                                                                                                         OR start_date <'$start_date' and end_date > '$start_date'
-                                                                                                                                              )";
-            $sql = mysqli_query($connection, $query);
-            $res = mysqli_fetch_array($sql);
-
-        } 
-        */
 
 ?>

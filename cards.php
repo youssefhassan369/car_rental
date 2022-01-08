@@ -51,19 +51,66 @@
 
 
   <br><br>
-  <?php include 'search.php';
-    $resultArray=$_SESSION['result'];
-   foreach ($resultArray as $row) { ?>
+  <?php 
+    include 'DB connection.php';
+    if(isset($_POST['search'])){
+    $year=$_POST['year'];
+    $brand=$_POST['brand'];
+    $city=$_POST['city'];
+    $max_price=$_POST['tprice'];
+    $min_price=$_POST['fprice'];
+    $transmission=$_POST['transmission'];
+    $type=$_POST['type'];
+    $start_date=$_POST['RStart_date'];
+    $end_date=$_POST['REnd_date'];
+
+    
+    $sql = "SELECT *
+    FROM  car natural join office
+    WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price >= '$min_price' and price <='$max_price' and plate_number NOT IN  ( 
+    SELECT  plate_number
+    FROM reservation   
+    WHERE  
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date')                      
+    Union
+    SELECT plate_number 
+    FROM service
+    WHERE 
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date'))";
+    
+    $brand_query="and brand= '$brand' " ;
+    $type_query="and type ='$type' " ;
+    $query_end="and plate_number NOT IN  ( 
+    SELECT  plate_number
+    FROM reservation   
+    WHERE  
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date')                      
+    Union
+    SELECT plate_number 
+    FROM service
+    WHERE 
+    (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date') ";
+
+  if($brand!=""){
+    $sql.=$brand_query;
+  }
+
+  if($type!=""){
+    $sql.=$type_query;
+  }
+
+  $result = mysqli_query($connection,$sql);
+   while ($row=mysqli_fetch_array($result)) { ?>
 
     <div class="card mb-3 d-block" style="width: 1000px; margin-left: auto; margin-right: auto;">
       <div class="row g-0">
         <div class="col-lg-4">
-          <img style="height:295px;width:540px"src="https://images.netdirector.co.uk/gforces-auto/image/upload/w_343,h_257,dpr_2.0,q_auto,c_fill,f_auto,fl_lossy/auto-client/4f3a94f309517d480173272c101fe224/thumbnail_mobile.jpg" class="img-fluid rounded-start" alt="...">
+          <img style="height:295px;width:540px"src="cars/<?php echo $row['image'];?>" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-lg-8">
           <div class="card-body">
-            <h5 style="font-size:35px"class="card-title">Lambogini</h5>
-            <p style="font-size:25px"class="card-text">"<?php echo $row['year']?>" </p>
+            <h5 style="font-size:35px"class="card-title"><?php echo $row['brand']?>   <?php echo $row['model']?>   <?php echo $row['year']?></h5>
+            <p style="font-size:25px"class="card-text">Seats:  <?php echo $row['seats']?>  <br>Transmission:  <?php echo $row['transmission']?>    <br>Price/day:  <?php echo $row['price']?>  EGP <br> Insurance value:  <?php echo $row['insurance']?>  EGP</p>
 
             <button style="margin-left:40%;"class="btn btn-primary btn-lg" onclick="myFunction()">Reserve</button>
 
@@ -71,7 +118,18 @@
         </div>
       </div>
     </div>
-    <?php } ?>
+    <?php }} ?>
+    <?php
+// session_start();
+$id=$_SESSION['customer_id'];
+echo"<p  align=center> <font color=white size='5pt'> Welcome  $id <br></font></p>";
+
+
+
+
+
+
+?>
 
     <script>
 function myFunction() {
