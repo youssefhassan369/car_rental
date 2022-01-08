@@ -1,4 +1,3 @@
-<?php include('search.php') ?>
 
 <html>
 	<head>
@@ -44,7 +43,7 @@
             {
                if(response=="success")
                {
-                  window.location.href="search.php";
+                  window.location.href="cards.php";
                }
                else
                {
@@ -131,7 +130,7 @@
 	<br>
 	<div>
 				
-		<form action='search.php' method='post' onsubmit="return do_search();" id="form3">
+		<form action='cards.php' method='post' onsubmit="return do_search();" id="form3">
 		
 	<!-- <h2 style="color:white">Search</h2> -->
 		
@@ -147,11 +146,15 @@
 			   <label style="font-size:130%">Location:</label>
 								<select name="city" id="city">
 								<option class="ca"  value="">You must pick city</option>
-								<option class="ca" value="cairo">Cairo</option>
-							<option  class="ca" value="alexandria">Alexandria</option>
-							<option  class="ca" value="giza">Giza</option>
-
-
+   				<?php 
+				   		include'DB connection.php';
+						$sql1 = "SELECT DISTINCT city from office";
+						$result1 = mysqli_query($connection,$sql1);
+						while($row1 = mysqli_fetch_array($result1))
+						{
+							echo "<option value='".$row1['city']."'>".$row1['city']."</options>";
+						}
+				?>
 																			</select>
 																			<br></br>
 
@@ -160,7 +163,6 @@
 							<select name="brand" id="brand">
 							<option class="ca"  value="">Default (all)</option>
 		<?php
-				include 'DB connection.php';
    				$sql = "SELECT DISTINCT brand FROM car";
    				$result = mysqli_query($connection,$sql);
 				while($row = mysqli_fetch_array($result))
@@ -175,7 +177,7 @@
 
 
 		<label style="font-size:130% ">Car Transmission:</label>
-					<select name="transsmision" id="transmission">
+					<select name="transmission" id="transmission">
 							<option class="ca"  value="a">Default (Automatic)</option>
 							<option class="ca" value="m">Manual</option>
 							<option  class="ca" value="a">Automatic</option><br>
@@ -186,18 +188,19 @@
 		<label style="font-size:130%">Car Type:</label>
 														<select name="type" id="type">
 															<option class="ca"  value="">Default (all)</option>
-															<option  class="ca" value="Sedan">Sedan</option>
-															<option  class="ca" value="Cross Over">Cross Over</option>
-															<option class="ca" value="Pick up">Pick up</option>
-															<option  class="ca" value="HatchBack">HatchBack</option>
-															<option  class="ca" value="Van">Van</option>
-															<option  class="ca" value="Coupe">Coupe</option>
-
+		<?php
+				$sql2 = "SELECT DISTINCT `type` FROM car";
+				$result2 = mysqli_query($connection,$sql2);
+				while($row2 = mysqli_fetch_array($result2))
+				{
+					echo "<option value='".$row2['type']."'>" .$row2['type'] ."</options>" ;
+				} 
+				?>
 														</select>
 														<br></br>
 			
 														<label style="font-size:130%"> Price:</label>
-							<select name="Fprice" id="fprice">
+							<select name="fprice" id="fprice">
 								<option class="ca"  value="0"> From </option>
 								<option class="ca" value="500">500</option>
 								<option  class="ca" value="1000">1000</option>
@@ -280,5 +283,6 @@
 			</div>
 			</div>
 		</div>
+		
 	</body>
 </html>

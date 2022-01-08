@@ -1,3 +1,7 @@
+<?php
+session_start();
+$id=$_SESSION['customer_id'];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +13,7 @@
     <title>My reservation</title>
     <style>
 	body {
-	background-image: url('lol1.png');
+	background-image: url('cards_background.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -49,10 +53,18 @@
 
 
   <body >
+  <?php 
+    include 'DB connection.php';
+      $query="SELECT fname,lname,SSN,email,brand,model,`year`,plate_number,`start_date`,end_date,total_cost,reservation_id,reserv_date
+        From customer natural join reservation natural join car
+        where customer_id='$id' ";
+        $result = mysqli_query($connection,$query);
+
+        while ($row=mysqli_fetch_array($result)) { ?>
       <div class="accordion-item" id="accordion">
           <h2 class="accordion-header" id="headingone">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseone" aria-expanded="false" aria-controls="collapseone">
-              Reserved car
+              Reservation ID: <?php echo $row['reservation_id'];?>           ( Reservation Date: <?php echo $row['reserv_date'];?>)
             </button>
           </h2>
           <div id="collapseone" class="accordion-collapse collapse" aria-labelledby="headingone" data-bs-parent="#accordionExample">
@@ -60,10 +72,10 @@
 
               <div class="card">
                 <div class="card-header">
-                  Featured
+                Start from :  <?php echo $row['start_date'];?> <br>To : <?php echo $row['end_date'];?>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">your car reservation :resrvation id :</h5>
+                 
                   <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
                             <div class="col-md-4">
@@ -88,6 +100,8 @@
 
       </div>
 </div>
+<?php } ?>
+
 
     <script>
     function myFunction() {

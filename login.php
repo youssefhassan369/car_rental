@@ -15,13 +15,15 @@ $encrypted_password=md5($password);
                                     WHERE email='$email' AND password='$encrypted_password'") ;
    $res=mysqli_fetch_array($query);
    if($res){
-   $query = "SELECT * FROM user WHERE email = '$email'";
+   $query = "SELECT * FROM customer WHERE email = '$email'";
     $result = mysqli_query($connection, $query);
     $userRow = mysqli_fetch_array($result);
+    $id=$userRow['customer_id'];
     $fname = $userRow['fname'];
     $lname = $userRow['lname'];
     $email = $userRow['email'];
     $phone = $userRow['phone'];
+    $_SESSION['customer_id']=$id;
     $_SESSION['email']=$email;
     $_SESSION['fname']=$fname;
     $_SESSION['lname']=$lname;
