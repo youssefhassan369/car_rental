@@ -55,8 +55,8 @@ $id=$_SESSION['customer_id'];
   <body >
   <?php 
     include 'DB connection.php';
-      $query="SELECT fname,lname,SSN,email,brand,model,`year`,plate_number,`start_date`,end_date,total_cost,reservation_id,reserv_date
-        From customer natural join reservation natural join car
+      $query="SELECT fname,lname,SSN,email,brand,model,`year`,plate_number,`start_date`,end_date,total_cost,reservation_id,reserv_date,transmission,seats,city,total_cost
+        From customer natural join reservation natural join car natural join office
         where customer_id='$id' ";
         $result = mysqli_query($connection,$query);
 
@@ -79,20 +79,20 @@ $id=$_SESSION['customer_id'];
                   <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
                             <div class="col-md-4">
-                              <img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGNhcnN8ZW58MHx8MHx8&w=1000&q=80" class="img-fluid rounded-start" alt="...">
+                            <img style="height:295px;width:540px"src="cars/<?php echo $row['image'];?>" class="img-fluid rounded-start" alt="...">
                             </div>
                             
                             <div class="col-md-8">
                               <div class="card-body">
-                                <h5 class="card-title">lamborgini</h5>
-                                <p class="card-text">*Brand:lamborgini*  *Type:sedan* *Model:logan*   *Year:2022*   *Transmision:A* *price:70000*    *Seats:5*     *insurance:8000* </p>
+                                <h5 class="card-title"><?php echo $row['brand'];?> <?php echo $row['model'];?> <?php echo $row['year'];?></h5>
+                                <p class="card-text">Number of seats: <?php echo $row['seats'];?><br>Transmission: <?php echo $row['transmission'];?><br> Price/Day: <?php echo $row['price'];?> EGP<br>Insurance: <?php echo $row['insurance'];?> EGP<br>City: <?php echo $row['city'];?> </p>
 
                               </div>
                             </div>
                           </div>
                         </div>
-                  <p class="card-text">start date :_____ --end date:_____ --city:____--</p>
-                  <button style="background:green; "class="btn btn-primary btn-lg" onclick="myFunction()">....Pay! ....</button>
+                  <p class="card-text">Invoice: <?php echo $row['total_cost'];?> EGP</p>
+                  <button style="background:green; "class="btn btn-primary btn-lg" onclick="myFunction()">Pay</button>
                 </div>
               </div>
             </div>
