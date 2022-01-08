@@ -37,7 +37,6 @@ $query_end="and plate_number NOT IN  (
     FROM service
     WHERE 
     (start_date <='$start_date' and end_date >= '$start_date') OR (start_date <='$end_date' and end_date >= '$end_date') ";
-
 if($brand!=""){
     $sql.=$brand_query;
 }
