@@ -24,7 +24,7 @@ $encrypted_password=md5($password);
     $_SESSION['email']=$email;
     $_SESSION['fname']=$fname;
     $_SESSION['lname']=$lname;
-    header('location:welcome.php');
+    header('location:adminhome.php');
     echo"<script>alert('login successfully')</script>";
    }
    else

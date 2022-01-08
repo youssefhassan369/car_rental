@@ -25,10 +25,10 @@
    						 <img src="logo2.png" width="60" height="40" alt="">
 					</a>
 						<li class="nav-item active">
-							<a class="nav-link" href="search_design.php">FOR BOOKING <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="search_design.php">For Booking <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="reservations.php">MY RESERVATIONS <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="reservations.php">My Reservations <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a  class="nav-link" href="logout.php">Logout</a>

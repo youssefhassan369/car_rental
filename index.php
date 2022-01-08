@@ -72,6 +72,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
   overflow-x: hidden;
+  
 }
 </style>
 <main  class="container" style="margin-top: 10%;margin-left:30%"> 
