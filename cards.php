@@ -119,18 +119,7 @@
       </div>
     </div>
     <?php }} ?>
-    <?php
-// session_start();
-$id=$_SESSION['customer_id'];
-echo"<p  align=center> <font color=white size='5pt'> Welcome  $id <br></font></p>";
-
-
-
-
-
-
-?>
-
+    
     <script>
 function myFunction() {
   let text;
