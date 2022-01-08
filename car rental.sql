@@ -55,7 +55,7 @@ FOREIGN KEY (plate_number) REFERENCES car(plate_number));
 
 
 CREATE TABLE admin(
-admin_id int,
+admin_id int Auto_Increment,
 email VARCHAR(100) NOT NULL,
 `password` VARCHAR(225) NOT NULL,
 fname VARCHAR(20) NOT NULL,
