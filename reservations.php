@@ -55,7 +55,7 @@ $id=$_SESSION['customer_id'];
   <body >
   <?php 
     include 'DB connection.php';
-      $query="SELECT fname,lname,SSN,email,brand,model,`year`,plate_number,`start_date`,end_date,total_cost,reservation_id,reserv_date,transmission,seats,city,total_cost
+      $query="SELECT fname,lname,SSN,email,brand,model,`year`,plate_number,`start_date`,end_date,total_cost,reservation_id,reserv_date,transmission,seats,city,total_cost,price,insurance,`image`
         From customer natural join reservation natural join car natural join office
         where customer_id='$id' ";
         $result = mysqli_query($connection,$query);
@@ -79,7 +79,7 @@ $id=$_SESSION['customer_id'];
                   <div class="card mb-3" style="max-width: 540px;">
                           <div class="row g-0">
                             <div class="col-md-4">
-                            <img style="height:295px;width:540px"src="cars/<?php echo $row['image'];?>" class="img-fluid rounded-start" alt="...">
+                            <img style="height:295px;width:700px"src="cars/<?php echo $row['image'];?>" class="img-fluid rounded-start" alt="...">
                             </div>
                             
                             <div class="col-md-8">
