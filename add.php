@@ -1,3 +1,4 @@
+<?php include 'register_car.php'?>
 <html>
 	<head>
 	<style>
@@ -51,7 +52,6 @@
 	<body class="modal-body">
 		<div>
 			<form action="add.php" method="post">
-				<br><br><br>
 				<h2 style="color:white; text-align:center">ADD A Car</h2>
 
 <div style="background:lightgrey;opacity:90%; " >
@@ -67,7 +67,7 @@
 
 
 	<label style="width:20%;font-size:20;color:black;margin-left:20%" class="form-control-plaintext" >Model:</label>
-	<input required style="width:25%;font-size:20;color:black;margin-left:20%" type='text' class="form-control" name='model' id="model"/><br>
+	<input required style="width:25%;font-size:20;color:black;margin-left:20%" type='text' class="form-control" name='model' id="model"/>
 
 	<label style="width:20%;font-size:20;color:black;margin-left:20%" class="form-control-plaintext">Color:</label>
 	 <input required style="width:25%;font-size:20;color:black;margin-left:20%" type='text' class="form-control" name='color'  id="color">
@@ -81,11 +81,8 @@
 						<select required style="width:25%;font-size:20;color:black;margin-left:20%" class="form-control" n name="transsmision" id="transmission">
 								<option class="ca"  value="">-----------Choose an option-----------</option>
 								<option class="ca" value="m">Manual</option>
-								<option  class="ca" value="a">Automatic</option><br>
+								<option  class="ca" value="a">Automatic</option>
 									</select>
-
-	<label style="width:20%;font-size:20;color:black;margin-left:20%" class="form-control-plaintext">Select Car City:</label>
-	          	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='text' class="form-control"  name="city" id="city">
 
 	<label  style="width:20%;font-size:20;color:black;margin-left:20%" class="form-control-plaintext" >Year:</label>
 				<select required style="width:14%;font-size:20;color:black;margin-left:20%"type='number' class="form-control" name='year' id="year" >
@@ -120,7 +117,7 @@
 	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='number' class="form-control" name='seats'id="seats"/><br>
 
 	<label style="width:20%;font-size:20;color:black;margin-left:20%" class="form-control-plaintext" >Price/Day:</label>
-	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='date' class="form-control" name='price' id="price"/>
+	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='number' class="form-control" name='price' id="price"/>
 
 	<label style="width:20%;font-size:20;color:black;margin-left:20%" class="form-control-plaintext" >Insurance:</label>
 	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='number' class="form-control" name='insurance'id="insurance"/>
@@ -129,11 +126,11 @@
 	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='text' class="form-control" name='img'id="img"/><br>
 
 	<label style="width:20%;font-size:20;color:black;margin-left:20%" class="form-control-plaintext" >Office ID</label>
-	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='text' class="form-control" id="office_id"/><br>
+	<input required style="width:25%;font-size:20;color:black;margin-left:20%"type='text' class="form-control" name="office_id" id="office_id"/><br>
 
 </div>
 <div style="margin-left:60%">
-<input style="color:white;background-color:red;border: none;font-size:20;margin-left:30%" class="btn btn-primary btn-lg" herf="adminhome.php" id=submit type="submit" name="submit" value="ADD CAR!"> <BR></BR>
+<input style="color:white;background-color:red;border: none;font-size:20;margin-left:30%" class="btn btn-primary btn-lg" herf="adminhome.php" id=submit type="submit" name="add_car" value="ADD CAR!"> <BR></BR>
 </div>
 
 </div>
@@ -141,13 +138,6 @@
 </form>
 </div>
 
-<script>
-function myFunction() {
-  let text;
-  if (confirm("Car Added Successfully !") == true) {
-    window.location.href="add.php";
-  }
-}
-</script>
+
 </body>
 </html>
