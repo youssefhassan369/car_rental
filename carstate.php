@@ -69,24 +69,34 @@
         <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">plate_number</th>
 		  <th scope="col">State</th>
 
     </tr>
   </thead>
+  <?php 
+    include 'DB connection.php';
+	if(isset($_POST['submit'])){
+
+	$start_date=$_POST['RStart_date'];
+    $end_date=$_POST['REnd_date'];
+	$query1="SELECT plate_number FROM service 
+	WHERE 
+	 (start_date <='$start_date' and end_date >= '$start_date') 
+	 OR (start_date <='$end_date' and end_date >= '$end_date')";
+     
+	$result = mysqli_query($connection,$query1); 
+	while ($row=mysqli_fetch_array($result)) {   ;
+		?>
   <tbody class="opacity-50" style="background:white;">
     <tr>
-      <th scope="row">1</th>
-      <td>10ABC</td>
-      <td>Kia</td>
-
-
-
-
-
+      <td><?php echo $row['plate_number']?></td>
+      <td>Out of service</td>
     </tr>
-    <tr>
+<!-- missing working cars -->
+	<?php }} ?>
+
+    <!-- <tr>
       <th scope="row">2</th>
 			<td>10ABC</td>
       <td>Kia</td>
@@ -103,7 +113,7 @@
 
 
 
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 
