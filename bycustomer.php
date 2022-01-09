@@ -11,7 +11,7 @@
 	</style>
 		<link rel="stylesheet" media="screen" href="bootstrap.min.css">
 
-			<title>custsearch</title>
+			<title>Home Page</title>
 
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,22 +26,22 @@
 					</a>
 
 						<li class="nav-item active">
-							<a class="nav-link" href="customersreport.php">Customers <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="customersreport.php">CustomersREPORT <span class="sr-only">(current)</span></a>
 						</li>
             <li class="nav-item active">
-							<a class="nav-link" href="carsreport.php">Cars <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="carsreport.php">CarsREPORT <span class="sr-only">(current)</span></a>
 						</li>
             <li class="nav-item active">
-							<a class="nav-link" href="reports.php">Reports <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="reports.php">REPORTS <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="editcars.php">ADD/DEL Cars<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="editcars.php">ADD/DEL CARS<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="all_reservations.php">Reservations <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="all_reservations.php">VIEW RESERVATIONS <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="advanced.php">Advanced Search <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="advanced.php">ADVANCEDSearch <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a  class="nav-link" href="logout.php">Logout</a>
@@ -62,7 +62,8 @@
 				<h2 style="color:white; text-align:center">Search By Customer</h2><br>
 
         <label style="font-size:130%;color:white" for="customer_id" >Customer's ID: </label>
-        <input required style=" background:white ;padding: 4px; width: 160px;" type="text" id="customerid" ></input>
+        <input style=" background:white ;padding: 4px; width: 160px;" type="text" id="customerid" ></input>
+        <button type="submit"  class="btn btn-success" value='search' style="background:grey;">Search</button>
     <br><br><br><br>
 
     <table class="table">
@@ -118,6 +119,7 @@
 		  <th scope="col">Plate no.</th>
       <th scope="col">Brand</th>
       <th scope="col">Model</th>
+			<th scope="col">Office ID</th>
 
 
     </tr>
@@ -129,6 +131,7 @@
       <td>2426</td>
       <td>Kia</td>
       <td>RIO</td>
+			<td>RIO</td>
 
 
 
@@ -141,7 +144,7 @@
       <td>2425</td>
       <td>Renulant</td>
       <td>LOGAN</td>
-
+      <td>RIO</td>
 
 
     </tr>
@@ -151,6 +154,7 @@
       <td>2358</td>
       <td>Kia</td>
       <td>PIC</td>
+			<td>RIO</td>
 
 
 
