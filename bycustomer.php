@@ -58,44 +58,57 @@
 				<br><br><br>
 				<h2 style="color:white; text-align:center">Search By Customer</h2><br>
 
-        <label style="font-size:130%;color:white" for="customer_id" >Customer's ID: </label>
-        <input style=" background:white ;padding: 4px; width: 160px;" type="text" id="customerid" ></input>
-        <button type="submit"  class="btn btn-success" value='search' style="background:grey;">Search</button>
+        <label style="font-size:130%;color:white" for="customer_id" >Customer Email: </label>
+        <input style=" background:white ;padding: 4px; width: 160px;"name="email" type="text" id="email" ></input>
+        <button type="submit" name="submit"  class="btn btn-success" value='search' style="background:grey;">Search</button>
     <br><br><br><br>
 
     <table class="table">
     <thead class="thead-dark">
     <tr>
-    <th scope="col">#</th>
     <th scope="col">customer_id</th>
     <th scope="col">SSN</th>
     <th scope="col">fname</th>
     <th scope="col">Lname</th>
     <th scope="col">phone</th>
     <th scope="col">email</th>
-    <!-- <th scope="col">password</th> -->
     <th scope="col">reg_date</th>
     <th scope="col">sex</th>
     <th scope="col">birth_date</th>
     <th scope="col">address</th>
     </tr>
     </thead>
+
+    <?php 
+    include 'DB connection.php';
+    if(isset($_POST['submit'])){
+      $email=$_POST['email'];
+   
+
+
+	$query="SELECT * FROM customer WHERE email='$email' ";
+  
+  
+	$result = mysqli_query($connection,$query); 
+	$index=0;
+
+	while ($row=mysqli_fetch_array($result)) {  $index=$index+1;
+		?>
     <tbody class="opacity-50" style="background:white;">
     <tr>
-    <th scope="row">1</th>
-    <td>10ABC</td>
-    <td>Kia</td>
-    <td>Sedan</td>
-    <td>Rio</td>
-    <td>2018</td>
-    <td>A</td>
-    <!-- <td>Black</td> -->
-    <td>400 LE</td>
-    <td>4</td>
-    <td>4</td>
-    <td>Available</td>
+    <th scope="row"><?php echo $row['customer_id']?></th>
+    <td><?php echo $row['SSN']?></td>
+    <td><?php echo $row['fname']?></td>
+    <td><?php echo $row['lname']?></td>
+    <td><?php echo $row['phone']?></td>
+    <td><?php echo $row['email']?></td>
+    <td><?php echo $row['reg_date']?></td>
+    <td><?php echo $row['sex']?></td>
+    <td><?php echo $row['birth_date']?></td>
+    <td><?php echo $row['address']?></td>
 
     </tr>
+    <?php }} ?>
 
 
     </tbody>
@@ -112,51 +125,58 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">RservationID</th>
-		  <th scope="col">Plate no.</th>
+      <th scope="col">Reservation ID</th>
+		  <th scope="col">Plate number</th>
       <th scope="col">Brand</th>
       <th scope="col">Model</th>
-			<th scope="col">Office ID</th>
+      <th scope="col">Year</th>
+			<th scope="col">Office</th>
+      <th scope="col">From</th>
+      <th scope="col">To</th>
+
 
 
     </tr>
   </thead>
+
+  <?php 
+    include 'DB connection.php';
+    if(isset($_POST['submit'])){
+      $email=$_POST['email'];
+   
+
+
+	$query="SELECT * FROM customer natural join reservation natural join car natural join office WHERE email='$email' ";
+  
+  
+	$result = mysqli_query($connection,$query); 
+	$index=0;
+
+	while ($row=mysqli_fetch_array($result)) {  $index=$index+1;
+		?>
   <tbody class="opacity-50" style="background:white;">
     <tr>
-      <th scope="row">1</th>
-      <td>10ABC</td>
-      <td>2426</td>
-      <td>Kia</td>
-      <td>RIO</td>
-			<td>RIO</td>
+      <th scope="row"><?php echo $index?></th>
+      <td><?php echo $row['reservation_id']?></td>
+      <td><?php echo $row['plate_number']?></td>
+      <td><?php echo $row['brand']?></td>
+      <td><?php echo $row['model']?></td>
+			<td><?php echo $row['year']?></td>
+      <td><?php echo $row['city']?> - <?php echo $row['location']?></td>
+      <td><?php echo $row['start_date']?></td>
+      <td><?php echo $row['end_date']?></td>
 
 
 
-
-
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-			<td>10DDC</td>
-      <td>2425</td>
-      <td>Renulant</td>
-      <td>LOGAN</td>
-      <td>RIO</td>
-
-
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-			<td>10AAC</td>
-      <td>2358</td>
-      <td>Kia</td>
-      <td>PIC</td>
-			<td>RIO</td>
 
 
 
 
     </tr>
+    <?php }} ?>
+
+
+    
   </tbody>
 </table>
 

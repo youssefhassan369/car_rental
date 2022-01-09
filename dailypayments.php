@@ -64,9 +64,7 @@
         <input required style="padding: 4px; width: 160px;" value="" type="date" id="RStart_date" name="RStart_date">
         <label  style="font-size:130%;color:white"for="to_date" >To:</label>
         <input required style="padding: 4px; width: 160px;" type="date" id="REnd_date" name="REnd_date">
-        <button type="submit"  class="btn btn-success" value='search' style="background:grey;">Search</button>
-        <label style="font-size:130%;color:white" for="total" >Total: </label>
-        <output style=" background:white ;padding: 4px; width: 160px;" type="text" id="total" name="total">Total</output>
+        <button name="submit" type="submit"  class="btn btn-success" value='search' style="background:grey;">Search</button>
     <br><br><br><br>
 
         <table class="table">
@@ -78,38 +76,37 @@
 
     </tr>
   </thead>
+
+
+  <?php 
+    include 'DB connection.php';
+    if(isset($_POST['submit'])){
+     $start_date=$_POST['RStart_date']  ; 
+	 $end_date=$_POST['REnd_date'] ; 
+
+
+	$query="SELECT cash_date,SUM(total_cost) as sum FROM reservation 
+	WHERE cash_date BETWEEN '$start_date' and '$end_date'
+	 GROUP by cash_date";
+  
+  
+	$result = mysqli_query($connection,$query); 
+	$index=0;
+	$total=0;
+
+	while ($row=mysqli_fetch_array($result)) {  $index=$index+1;
+		?>
   <tbody class="opacity-50" style="background:white;">
     <tr>
-      <th scope="row">1</th>
-      <td>10ABC</td>
-      <td>Kia</td>
-
-
-
-
-
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-			<td>10ABC</td>
-      <td>Kia</td>
-
-
-
-
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-			<td>10ABC</td>
-      <td>Kia</td>
-
-
-
-
-    </tr>
+      <th scope="row"><?php echo $index?></th>
+      <td><?php echo $row['cash_date']?></td>
+      <td><?php echo $row['sum']?></td>
+	  <?php $total=$total+$row['sum'];
+	 }} ?>
   </tbody>
 </table>
-
+<label style="font-size:130%;color:white" for="total" >Total: </label>
+        <output style=" background:white ;padding: 4px; width: 160px;" type="text" id="total" name="total"><?php echo $total?> EGP</output>
 
 			</form>
 		</div>

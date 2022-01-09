@@ -50,16 +50,16 @@
 
 	<body class="modal-body">
 		<div>
-        <form action="cars.php" method="post">
+        <form action="car.php" method="post">
           <br><br><br>
-          <h2 style="color:white; text-align:center">RESERVED CARS REPORT BY PERIOD</h2><br>
+          <h2 style="color:white; text-align:center">Reserved Cars</h2><br>
 				<br><br>
 
         <label  style="font-size:130%;color:white"for="from_date">From:</label>
 			<input style="padding: 4px; width: 160px;"  value=""type="date" id="RStart_date" name="RStart_date">
 			<label  style="font-size:130%;color:white"for="to_date" >To:</label>
 			<input  style="padding: 4px; width: 160px;" type="date" id="REnd_date" name="REnd_date">
-      <button type="submit"  class="btn btn-success" value='search' style="background:grey;">Search</button><br><br>
+      <button type="submit"  class="btn btn-success" name="submit" value='search' style="background:grey;">Search</button><br><br>
 
 
         <table class="table">
@@ -78,30 +78,60 @@
 			<th scope="col">Seats</th>
 			<th scope="col">State</th>
 			<th scope="col">Insurance</th>
-			<th scope="col">img.</th>
-			<th scope="col">City</th>
-			<th scope="col">Office ID</th>
+			<th scope="col">Office</th>
+			<th scope="col">From</th>
+			<th scope="col">To</th>
+
+
+			
     </tr>
   </thead>
+  <?php 
+    include 'DB connection.php';
+    if(isset($_POST['submit'])){
+      $start_date=$_POST['RStart_date'];
+      $end_date=$_POST['REnd_date'];
+
+
+	$query="SELECT * FROM car natural join reservation natural join office
+  WHERE 
+  `start_date` BETWEEN '$start_date' and '$end_date'
+  OR 
+  end_date BETWEEN '$start_date' and '$end_date'
+  OR
+  (
+    ('$start_date' >`start_date` and '$start_date' < end_date)
+  OR 
+  ('$end_date' >`start_date` and '$end_date' < end_date)
+)
+  
+  ORDER BY `start_date`";
+	$result = mysqli_query($connection,$query); 
+	$index=0;
+
+	while ($row=mysqli_fetch_array($result)) {  $index=$index+1;
+		?>
   <tbody class="opacity-50" style="background:white;">
     <tr>
-      <th scope="row">1</th>
-      <td>10ABC</td>
-      <td>Kia</td>
-      <td>Sedan</td>
-			<td>Rio</td>
-			<td>2018</td>
-			<td>A</td>
-			<td>Black</td>
-			<td>400 LE</td>
-			<td>4</td>
-			<td>Available</td>
-			<td>800</td>
-			<td>img..</td>
-			<td>Alex</td>
-			<td>Alex</td>
+      <th scope="row"><?php echo $index?></th>
+        <td><?php echo $row['plate_number']?></td>
+        <td><?php echo $row['brand']?></td>
+        <td><?php echo $row['type']?></td>
+        <td><?php echo $row['model']?></td>
+        <td><?php echo $row['year']?></td>
+        <td><?php echo $row['transmission']?></td>
+        <td><?php echo $row['color']?></td>
+        <td><?php echo $row['price']?> EGP</td>
+        <td><?php echo $row['seats']?></td>
+        <td><?php echo $row['state']?></td>
+        <td><?php echo $row['insurance']?> EGP</td>
+        <td><?php echo $row['city']?><br><?php echo $row['location']?></td>
+        <td><?php echo $row['start_date']?></td>
+		<td><?php echo $row['end_date']?></td>
+        
 
     </tr>
+        <?php }} ?>
     
   </tbody>
 </table>

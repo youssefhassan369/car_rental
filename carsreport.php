@@ -80,6 +80,7 @@
 			<th scope="col">City (branch)</th>
     </tr>
   </thead>
+  
   <?php 
     include 'DB connection.php';
 	$query="SELECT * FROM car natural join office ORDER BY city,`location`";
