@@ -105,10 +105,10 @@
    						 <img src="logo2.png" width="60" height="40" alt="">
 					</a>
 						<li class="nav-item active">
-							<a style="color:black"class="nav-link" href="search_design.php">FOR BOOKING </a>
+							<a style="color:black"class="nav-link" href="search_design.php">For Booking</a>
 						</li>
 						<li class="nav-item active">
-							<a style="color:black"class="nav-link" href="reservations.php">MY RESERVATIONS </a>
+							<a style="color:black"class="nav-link" href="reservations.php">My Reservations </a>
 						</li>
 						
 						

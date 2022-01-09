@@ -25,22 +25,22 @@
    						 <img src="logo2.png" width="60" height="40" alt="">
 					</a>
 						<li class="nav-item active">
-							<a class="nav-link" href="customersreport.php">CustomersREPORT <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="customersreport.php">Customers <span class="sr-only">(current)</span></a>
 						</li>
             <li class="nav-item active">
-							<a class="nav-link" href="carsreport.php">CarsREPORT <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="carsreport.php">Cars <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="reports.php">REPORTS <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="reports.php">Reports <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="editcars.php">ADD/DEL CARS<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="editcars.php">ADD/DEL Cars<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="viewres.php">VIEW RESERVATIONS <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="viewres.php">Reservations <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="advanced.php">ADVANCEDSearch <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="advanced.php">Advanced Search <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a  class="nav-link" href="logout.php">Logout</a>
@@ -58,7 +58,7 @@
 		<div>
 			<form action="carsreport.php" method="post">
 				<br><br><br>
-				<h2 style="color:white; text-align:center">CARS REPORT</h2><br>
+				<h2 style="color:white; text-align:center">Cars</h2><br>
 
 
         <table class="table">
@@ -80,25 +80,34 @@
 			<th scope="col">City</th>
     </tr>
   </thead>
+  <?php 
+    include 'DB connection.php';
+	$query="SELECT * FROM car natural join office";
+	$result = mysqli_query($connection,$query); 
+	$index=0;
+
+	while ($row=mysqli_fetch_array($result)) {       $index=$index+1;
+		?>
   <tbody class="opacity-50" style="background:white;">
     <tr>
-      <th scope="row">1</th>
-      <td>10ABC</td>
-      <td>Kia</td>
-      <td>Sedan</td>
-			<td>Rio</td>
-			<td>2018</td>
-			<td>A</td>
-			<td>Black</td>
-			<td>400 LE</td>
-			<td>4</td>
-			<td>Available</td>
-			<td>800</td>
-			<td>img..</td>
-			<td>Alex</td>
+      <th scope="row"><?php echo $index?></th>
+      <td><?php echo $row['plate_number']?></td>
+      <td><?php echo $row['brand']?></td>
+      <td><?php echo $row['type']?></td>
+			<td><?php echo $row['model']?></td>
+			<td><?php echo $row['year']?></td>
+			<td><?php echo $row['transmission']?></td>
+			<td><?php echo $row['color']?></td>
+			<td><?php echo $row['price']?></td>
+			<td><?php echo $row['seats']?></td>
+			<td><?php echo $row['state']?></td>
+			<td><?php echo $row['insurance']?></td>
+			<td><?php echo $row['image']?></td>
+			<td><?php echo $row['city']?></td>
 
     </tr>
-    <tr>
+	<?php } ?>
+    <!-- <tr>
       <th scope="row">2</th>
 			<td>10ABC</td>
       <td>Kia</td>
@@ -129,7 +138,7 @@
 			<td>800</td>
 			<td>img..</td>
 			<td>Alex</td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 
