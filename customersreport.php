@@ -11,7 +11,7 @@
 	</style>
 		<link rel="stylesheet" media="screen" href="bootstrap.min.css">
 
-			<title>customer reserve</title>
+			<title>Customers Information</title>
 
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -37,7 +37,7 @@
 							<a class="nav-link" href="editcars.php">ADD/DEL Cars<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="viewres.php">Reservations <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="all_reservations.php">Reservations <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="advanced.php">Advanced Search <span class="sr-only">(current)</span></a>
@@ -64,10 +64,10 @@
         <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">customer_id</th>
-      <th scope="col">SSN</th>
-      <th scope="col">fname</th>
+      		<th scope="col">#</th>
+      		<th scope="col">customer_id</th>
+     		<th scope="col">SSN</th>
+      		<th scope="col">fname</th>
 			<th scope="col">Lname</th>
 			<th scope="col">phone</th>
 			<th scope="col">email</th>
@@ -79,7 +79,7 @@
   </thead>
   <?php 
     include 'DB connection.php';
-	$query="SELECT * FROM customer";
+	$query="SELECT * FROM customer ORDER BY reg_date";
 	$result = mysqli_query($connection,$query); 
 	$index=0;
 
@@ -88,55 +88,21 @@
 
   <tbody class="opacity-50" style="background:white;">
     <tr>
-      <th scope="row"><?php echo $index ?></th>
-      <td><?php echo $row['customer_id']?></td>
-      <td><?php echo $row['SSN']?></td>
-      <td><?php echo $row['fname']?></td>
+     		<th scope="row"><?php echo $index ?></th>
+      		<td><?php echo $row['customer_id']?></td>
+      		<td><?php echo $row['SSN']?></td>
+      		<td><?php echo $row['fname']?></td>
 			<td><?php echo $row['lname']?></td>
 			<td><?php echo $row['phone']?></td>
-			<td><?php echo $row['email']?>/td>
+			<td><?php echo $row['email']?></td>
 			<td><?php echo $row['reg_date']?></td>
 			<td><?php echo $row['sex']?></td>
-      <td><?php echo $row['birth_date']?></td>
+     		<td><?php echo $row['birth_date']?></td>
 			<td><?php echo $row['address']?></td>
-
-
     </tr>
 	<?php } ?>
-
-	
-    <!-- <tr>
-      <th scope="row">2</th>
-			<td>10ABC</td>
-      <td>Kia</td>
-      <td>Sedan</td>
-			<td>Rio</td>
-			<td>2018</td>
-			<td>A</td>
-			<td>400 LE</td>
-			<td>4</td>
-      <td>4</td>
-			<td>Available</td>
-
-    </tr> -->
-    <!-- <tr>
-      <th scope="row">3</th>
-			<td>10ABC</td>
-      <td>Kia</td>
-      <td>Sedan</td>
-			<td>Rio</td>
-			<td>2018</td>
-			<td>A</td>
-			<td>400 LE</td>
-			<td>4</td>
-      <td>4</td>
-			<td>Available</td>
-
-    </tr> -->
   </tbody>
 </table>
-
-
 			</form>
 		</div>
 	</body>

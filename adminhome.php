@@ -37,7 +37,7 @@
 							<a class="nav-link" href="editcars.php">ADD/DEL Cars<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="viewres.php">Reservations <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="all_reservations.php">Reservations <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="advanced.php">Advanced Search <span class="sr-only">(current)</span></a>

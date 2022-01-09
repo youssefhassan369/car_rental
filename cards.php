@@ -33,7 +33,7 @@
 							<a style="color:black"class="nav-link" href="search_design.php">FOR BOOKING </a>
 						</li>
 						<li class="nav-item active">
-							<a style="color:black"class="nav-link" href="reservations.php">My Reservations </a>
+							<a style="color:black"class="nav-link" href="reservations.php">MY RESERVATIONS </a>
 						</li>
 						
 						
@@ -64,6 +64,8 @@
     $start_date=$_POST['RStart_date'];
     $end_date=$_POST['REnd_date'];
 
+    $diff = strtotime($end_date) - strtotime($start_date);
+    $days = abs(round($diff / (24*60*60)));
     
     $sql = "SELECT *
     FROM  car natural join office
@@ -110,7 +112,7 @@
         <div class="col-lg-8">
           <div class="card-body">
             <h5 style="font-size:35px"class="card-title"><?php echo $row['brand']?>   <?php echo $row['model']?>   <?php echo $row['year']?></h5>
-            <p style="font-size:25px"class="card-text">Seats:  <?php echo $row['seats']?>  <br>Transmission:  <?php echo $row['transmission']?>    <br>Price/day:  <?php echo $row['price']?>  EGP <br> Insurance value:  <?php echo $row['insurance']?>  EGP</p>
+            <p style="font-size:25px"class="card-text">Seats:  <?php echo $row['seats']?>  <br>Transmission:  <?php echo $row['transmission']?>    <br>Price/day:  <?php echo $row['price']?>  EGP <br>Insurance value:  <?php echo $row['insurance']?>  EGP<br>Number of days: <?php echo $days?></p>
 
             <button style="margin-left:40%;"class="btn btn-primary btn-lg" onclick="myFunction()">Reserve</button>
 
@@ -119,11 +121,12 @@
       </div>
     </div>
     <?php }} ?>
-    
     <script>
 function myFunction() {
   let text;
   if (confirm("Are you sure you want to reserve this car!") == true) {
+    <?php include 'DB connection.php';
+    ?>
     window.location.href="reservations.php";
   } else {
     text = "You canceled!";
