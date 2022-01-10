@@ -10,7 +10,7 @@
 	</style>
 		<link rel="stylesheet" media="screen" href="bootstrap.min.css">
 
-			<title>add/delete</title>
+			<title>Home Page</title>
 
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,22 +24,22 @@
    						 <img src="logo2.png" width="60" height="40" alt="">
 					</a>
 						<li class="nav-item active">
-							<a class="nav-link" href="customersreport.php">Customers <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="customersreport.php">CustomersREPORT <span class="sr-only">(current)</span></a>
 						</li>
             <li class="nav-item active">
-							<a class="nav-link" href="carsreport.php">Cars <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="carsreport.php">CarsREPORT <span class="sr-only">(current)</span></a>
 						</li>
             <li class="nav-item active">
-							<a class="nav-link" href="reports.php">Reports <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="reports.php">REPORTS <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="editcars.php">ADD/DEL Cars<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="editcars.php">ADD/DEL CARS<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="all_reservations.php">Reservations <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="viewres.php">VIEW RESERVATIONS <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="advanced.php">Advanced Search <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="advanced.php">ADVANCEDSearch <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a  class="nav-link" href="logout.php">Logout</a>
@@ -54,11 +54,20 @@
 	<body class="modal-body">
 		<div>
 			<form action="editcars.php" method="post">
-				<br><br><br>
+				<br>
 				<h1 style="color:white; text-align:center">
-          <a style="color:white" href="add.php" class="ca">Add Car</a>
+
+					<a style="color:white" href="add.php" class="ca">ADD Car</a>
           <a style="color:white" href="#">/</a>
-          <a style="color:white" href="delete.php" class="ca">Delete Car</a>
+          <a style="color:white" href="delete.php" class="ca">DELETE Car</a>
+		  <br>
+		  <a style="color:white" href="editcarstate.php" class="ca">Car state</a>
+		  <a style="color:white" href="#">/</a>
+		  <a style="color:white" href="servicecar.php" class="ca">Service Car</a>
+      <a style="color:white" href="#">/</a>
+			<a style="color:white" href="modifycar.php" class="ca">Modify Car</a>
+
+
          </h2>
 
 

@@ -7,7 +7,7 @@
 	background-attachment: fixed;
 	background-size: cover;
 	}
-
+	
 	</style>
 		<link rel="stylesheet" media="screen" href="bootstrap.min.css">
 

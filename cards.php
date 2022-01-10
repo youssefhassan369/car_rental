@@ -15,6 +15,11 @@
           background-attachment: fixed;
           background-size: cover;
           }
+          .container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start
+    }
     </style>
     
 
@@ -69,7 +74,7 @@
     
     $sql = "SELECT *
     FROM  car natural join office
-    WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price >= '$min_price' and price <='$max_price' and plate_number NOT IN  ( 
+    WHERE  `year` >= '$year' and city='$city' and transmission='$transmission' and price >= '$min_price' and price <='$max_price' and `state`='a' and plate_number NOT IN  ( 
     SELECT  plate_number
     FROM reservation   
     WHERE  
@@ -101,9 +106,10 @@
     $sql.=$type_query;
   }
 
+ 
   $result = mysqli_query($connection,$sql);
-   while ($row=mysqli_fetch_array($result)) { ?>
-
+   while ($row=mysqli_fetch_array($result)) { 
+     $array=$row['plate_number']; ?>
     <div class="card mb-3 d-block" style="width: 1000px; margin-left: auto; margin-right: auto;">
       <div class="row g-0">
         <div class="col-lg-4">
@@ -113,27 +119,20 @@
           <div class="card-body">
             <h5 style="font-size:35px"class="card-title"><?php echo $row['brand']?>   <?php echo $row['model']?>   <?php echo $row['year']?></h5>
             <p style="font-size:25px"class="card-text">Seats:  <?php echo $row['seats']?>  <br>Transmission:  <?php echo $row['transmission']?>    <br>Price/day:  <?php echo $row['price']?>  EGP <br>Insurance value:  <?php echo $row['insurance']?>  EGP<br>Number of days: <?php echo $days?></p>
-
-            <button style="margin-left:40%;"class="btn btn-primary btn-lg" onclick="myFunction()">Reserve</button>
-
+         <p style="color:red;font-size:25px" >&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Plate Number: <?php echo $row['plate_number']?></p>
           </div>
         </div>
       </div>
     </div>
     <?php }} ?>
-    <script>
-function myFunction() {
-  let text;
-  if (confirm("Are you sure you want to reserve this car!") == true) {
-    <?php include 'DB connection.php';
-    ?>
-    window.location.href="reservations.php";
-  } else {
-    text = "You canceled!";
-  }
-}
-</script>
-    
+    <label style="width:20%;font-size:150%;color:white;margin-left:20%" class="form-control-plaintext" >Enter Plate Number Of Car You Want To Reserve:
+
+    <!-- <div style="margin-top:3%"class="container"> -->
+		<input style="color:black;"type='text' class="form-control" name='plate_number' id="plate_number"/>
+    <button style="margin-top:5%" class="btn btn-primary btn-lg" name="<?php $row['plate_number']?>"  value="<?php $row['plate_number']?>">Reserve</button>
+   <!-- </div> -->
+
+  <br></br>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
       
