@@ -62,7 +62,7 @@ $id=$_SESSION['customer_id'];
         $result = mysqli_query($connection,$query);
 
         while ($row=mysqli_fetch_array($result)) { ?>
-      <div class="accordion-item" id="<?php $row['reservation']?>">
+      <div class="accordion-item" id="accordion">
           <h2 class="accordion-header" id="headingone">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseone" aria-expanded="false" aria-controls="collapseone">
               Reservation ID: <?php echo $row['reservation_id'];?>           ( Reservation Date: <?php echo $row['reserv_date'];?>)
@@ -101,20 +101,21 @@ $id=$_SESSION['customer_id'];
       </div>
 </div>
 <?php } ?>
-<label style="width:20%;font-size:150%;color:white;margin-left:10%" class="form-control-plaintext" >Enter Reserve Id :</label>
+<label style="width:20%;font-size:150%;color:white;margin-left:10%" class="form-control-plaintext" >Enter Reserve Id You want to pay :</label>
 <input style="color:black;width:20%;margin-left:10%"type='text' class="form-control" name='rev_id' id="rev_id"/>
 <button style="margin-top:2%;margin-left:10%" href="adminhome.php" class="btn btn-primary btn-lg" name="pay"  value="pay">PAY</button>
+<?php
+    if(isset($_POST['pay'])){
+           $reservation_id = $_POST['rev_id'];
 
+           $date = date('y-m-d');
+            $sql = "UPDATE reservation SET `cash_date`='$date'  WHERE customer_id='$id' And reservation_id='$reservation_id'";
+            $result = mysqli_query($connection,$sql);
+           }
+    
+?>
         </form>
-    <script>
-    function myFunction() {
-      let text;
-      if (confirm("Success!") == true) {
-        window.location.href="reservations.php";
-      }
-    }
-    </script>
-
+  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

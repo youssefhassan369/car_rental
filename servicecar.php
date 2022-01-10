@@ -38,7 +38,7 @@
 							<a class="nav-link" href="editcars.php">ADD/DEL CARS<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="viewres.php">VIEW RESERVATIONS <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="all_reservations.php">VIEW RESERVATIONS <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
 							<a class="nav-link" href="advanced.php">ADVANCEDSearch <span class="sr-only">(current)</span></a>
@@ -96,7 +96,7 @@
 		$plate_number=$_POST['plate_number'];
 		$sql = "INSERT INTO `service` (plate_number,`start_date`,end_date) VALUES ('$plate_number','$start_date','$end_date')";
 	    $result = mysqli_query($connection,$sql); 
-header('location:adminhomes.php');
+header('location:adminhome.php');
 	}
 ?>
 
