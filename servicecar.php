@@ -96,7 +96,7 @@
 		$plate_number=$_POST['plate_number'];
 		$sql = "INSERT INTO `service` (plate_number,`start_date`,end_date) VALUES ('$plate_number','$start_date','$end_date')";
 	    $result = mysqli_query($connection,$sql); 
-header('location:adminhome.php');
+header('location:adminhomes.php');
 	}
 ?>
 

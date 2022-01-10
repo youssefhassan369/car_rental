@@ -51,17 +51,18 @@ $id=$_SESSION['customer_id'];
 
 
 
-
+<form action='#'method='post';>
   <body >
   <?php 
     include 'DB connection.php';
       $query="SELECT fname,lname,SSN,email,brand,model,`year`,plate_number,`start_date`,end_date,total_cost,reservation_id,reserv_date,transmission,seats,city,total_cost,price,insurance,`image`
         From customer natural join reservation natural join car natural join office
-        where customer_id='$id' ";
+        where customer_id='$id' 
+        order by reservation_id desc";
         $result = mysqli_query($connection,$query);
 
         while ($row=mysqli_fetch_array($result)) { ?>
-      <div class="accordion-item" id="accordion">
+      <div class="accordion-item" id="<?php $row['reservation']?>">
           <h2 class="accordion-header" id="headingone">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseone" aria-expanded="false" aria-controls="collapseone">
               Reservation ID: <?php echo $row['reservation_id'];?>           ( Reservation Date: <?php echo $row['reserv_date'];?>)
@@ -92,7 +93,6 @@ $id=$_SESSION['customer_id'];
                           </div>
                         </div>
                   <p class="card-text">Invoice: <?php echo $row['total_cost'];?> EGP</p>
-                  <button style="background:green; "class="btn btn-primary btn-lg" onclick="myFunction()">Pay</button>
                 </div>
               </div>
             </div>
@@ -101,8 +101,11 @@ $id=$_SESSION['customer_id'];
       </div>
 </div>
 <?php } ?>
+<label style="width:20%;font-size:150%;color:white;margin-left:10%" class="form-control-plaintext" >Enter Reserve Id :</label>
+<input style="color:black;width:20%;margin-left:10%"type='text' class="form-control" name='rev_id' id="rev_id"/>
+<button style="margin-top:2%;margin-left:10%" href="adminhome.php" class="btn btn-primary btn-lg" name="pay"  value="pay">PAY</button>
 
-
+        </form>
     <script>
     function myFunction() {
       let text;
