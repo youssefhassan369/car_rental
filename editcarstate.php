@@ -90,13 +90,5 @@
 			</form>
 		</div>
 
-<!-- <script>
-function myFunction() {
-  let text;
-  if (confirm("Car Deleted!") == true) {
-    window.location.href="delete.php";
-  }
-}
-</script> -->
 </body>
 </html>
