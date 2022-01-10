@@ -10,7 +10,7 @@
 	</style>
 		<link rel="stylesheet" media="screen" href="bootstrap.min.css">
 
-			<title>REPORTS</title>
+			<title>Home Page</title>
 
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,22 +24,22 @@
    						 <img src="logo2.png" width="60" height="40" alt="">
 					</a>
 						<li class="nav-item active">
-							<a class="nav-link" href="customersreport.php">Customers <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="customersreport.php">CustomersREPORT <span class="sr-only">(current)</span></a>
 						</li>
             <li class="nav-item active">
-							<a class="nav-link" href="carsreport.php">Cars <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="carsreport.php">CarsREPORT <span class="sr-only">(current)</span></a>
 						</li>
             <li class="nav-item active">
-							<a class="nav-link" href="reports.php">Reports <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="reports.php">REPORTS <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="editcars.php">ADD/DEL Cars<span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="editcars.php">ADD/DEL CARS<span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="all_reservations.php">Reservations <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="viewres.php">VIEW RESERVATIONS <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item active">
-							<a class="nav-link" href="advanced.php">Advanced Search <span class="sr-only">(current)</span></a>
+							<a class="nav-link" href="advanced.php">ADVANCEDSearch <span class="sr-only">(current)</span></a>
 						</li>
 						<li class="nav-item">
 							<a  class="nav-link" href="logout.php">Logout</a>
@@ -53,18 +53,17 @@
 
 	<body class="modal-body">
 		<div>
-			<form action="reports.php" method="post">
+			<form action="editcars.php" method="post">
 				<br><br><br>
-        <div style="background:white;opacity:65% " >
-				<h1 style="color:black; text-align:center " >
-          <a style="color:black" href="carcustomer.php" class="ca">Car & Customer Information</a><br>
-          <a style="color:black" href="car.php" class="ca">Car Information</a><br>
-          <a style="color:black" href="carstate.php" class="ca">Car Status</a><br>
-          <a style="color:black" href="bycustomer.php" class="ca">Reservations Of Customer By Email</a><br>
-          <a style="color:black" href="dailypayments.php" class="ca">Daily Payments</a><br>
+				<h1 style="color:white; text-align:center">
+          <a style="color:white" href="advancedreservation.php" class="ca">By Reservations</a>
+          <a style="color:white" href="#">-</a>
+          <a style="color:white" href="advancedcustomer.php" class="ca">By Customers</a>
+          <a style="color:white" href="#">-</a>
+          <a style="color:white" href="advancedcar.php" class="ca">By Car</a>
          </h2>
 
-       </div>
+
 
 
 			</form>
