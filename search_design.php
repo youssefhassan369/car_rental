@@ -136,15 +136,15 @@
 		
 	
 			<label  style="font-size:130%"for="from_date">From:</label>
-			<input style="padding: 4px; width: 160px;"  value=""type="date" id="RStart_date" name="RStart_date">
+			<input required style="padding: 4px; width: 160px;"  value=""type="date" id="RStart_date" name="RStart_date">
 			<label  style="font-size:130%"for="to_date">To:</label>
-			<input  style="padding: 4px; width: 160px;" type="date" id="REnd_date" name="REnd_date">
+			<input  required style="padding: 4px; width: 160px;" type="date" id="REnd_date" name="REnd_date">
 		
 	
 
    			<br><br>
 			   <label style="font-size:130%">Location:</label>
-								<select name="city" id="city">
+								<select required name="city" id="city">
 								<option class="ca"  value="">You must pick city</option>
    				<?php 
 				   		include'DB connection.php';

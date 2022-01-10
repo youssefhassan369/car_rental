@@ -33,22 +33,20 @@ if(isset($_POST['reg_user'])){
         if($result)
         {
             echo"<script> alert('Registration Done Successfully')</script>";
-            $_SESSION['fname'] = $fname;
-            $_SESSION['lname'] = $lname;
-            $_SESSION['email'] = $email;
-            $_SESSION['phone'] = $phone;
-            header('location:welcome.php');
-            $SSN ="";
-            $fname ="";
-            $lname = "";
-            $phone ="";
-            $email = "";
-            $_POST['password_1']="";
-            $_POST['password_2']="";
-            $sex = "";
-            $birth_date = "";
-            $address = "";
-
+            $query = "SELECT * FROM customer WHERE email = '$email'";
+            $result = mysqli_query($connection, $query);
+            $userRow = mysqli_fetch_array($result);
+            $id=$userRow['customer_id'];
+            $fname = $userRow['fname'];
+            $lname = $userRow['lname'];
+            $email = $userRow['email'];
+            $phone = $userRow['phone'];
+            $_SESSION['customer_id']=$id;
+            $_SESSION['email']=$email;
+            $_SESSION['fname']=$fname;
+            $_SESSION['lname']=$lname;
+            $_SESSION['phone']=$phone;
+            
         }else {
             echo "<script>alert('Something went wrong')</script>";
              }

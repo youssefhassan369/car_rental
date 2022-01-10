@@ -1,3 +1,6 @@
+<?php
+session_start();
+$id=$_SESSION['customer_id'];?>
 <!doctype html>
 <html>
   <head>
@@ -53,7 +56,7 @@
 
   </head>
 
-
+<form action='#' method='post';>
 
   <br><br>
   <?php 
@@ -71,6 +74,9 @@
 
     $diff = strtotime($end_date) - strtotime($start_date);
     $days = abs(round($diff / (24*60*60)));
+    $_SESSION['days']=$days;
+    $_SESSION['start']=$start_date;
+    $_SESSION['end']=$end_date;
     
     $sql = "SELECT *
     FROM  car natural join office
@@ -128,10 +134,32 @@
     <label style="width:20%;font-size:150%;color:white;margin-left:20%" class="form-control-plaintext" >Enter Plate Number Of Car You Want To Reserve:
 
     <!-- <div style="margin-top:3%"class="container"> -->
-		<input style="color:black;"type='text' class="form-control" name='plate_number' id="plate_number"/>
-    <button style="margin-top:5%" class="btn btn-primary btn-lg" name="<?php $row['plate_number']?>"  value="<?php $row['plate_number']?>">Reserve</button>
+		<input style="color:black;"type='text' class="form-control" name="plate_number" id="plate_number"/>
+    <br>
+    <input style="color:white;background-color:red;border: none;font-size:20;margin-left:30%" href='adminhome.php'type='submit' name='submit' class="btn btn-success" value='Reserve'/>
    <!-- </div> -->
+   <?php
+    if(isset($_POST['submit'])){
+          $plate_number = $_POST['plate_number'];
+          $start_date=$_SESSION['start'];
+          $end_date=$_SESSION['end'];
+          $days1=$_SESSION['days'];
+           $sql = "SELECT price FROM car WHERE plate_number='$plate_number'";
+           $result = mysqli_query($connection,$sql);
+           $row=mysqli_fetch_array($result);
+           $total_price=$days1*$row['price'];
+           $sql1 = "INSERT INTO reservation (`customer_id`, `plate_number`, `start_date`, `end_date`, `total_cost`)
+          VALUES ('$id','$plate_number','$start_date','$end_date','$total_price');";
+           $result1 = mysqli_query($connection,$sql1);
+  
 
+   
+            header('location:reservations.php');
+      
+          }
+    
+?>
+</form>
   <br></br>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
