@@ -46,7 +46,8 @@ if(isset($_POST['reg_user'])){
             $_SESSION['fname']=$fname;
             $_SESSION['lname']=$lname;
             $_SESSION['phone']=$phone;
-            
+            header('location:welcome.php');
+
         }else {
             echo "<script>alert('Something went wrong')</script>";
              }
